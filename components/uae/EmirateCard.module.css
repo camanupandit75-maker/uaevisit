@@ -1,0 +1,146 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  padding: 0 4px 12px;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.archBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 200 / 164;
+  max-height: 200px;
+}
+
+.watermark {
+  position: absolute;
+  inset: 18% 8% auto;
+  z-index: 0;
+  font-family: var(--font-arabic);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--sand-deep);
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.archSvg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.archOuter {
+  fill: none;
+  stroke: var(--sand-deep);
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.archInner {
+  stroke: var(--sand-deep);
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 3px rgba(201, 162, 39, 0.16));
+}
+
+.emirateIcon {
+  color: var(--sand-deep);
+  opacity: 0.65;
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  fill: var(--sand-soft);
+}
+
+.textBlock {
+  margin-top: 10px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--pearl);
+}
+
+.nameAr {
+  margin: 4px 0 0;
+  font-family: var(--font-arabic);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sand-deep);
+  opacity: 0.85;
+}
+
+.divider {
+  width: 32px;
+  height: 1px;
+  margin: 10px auto;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sand-deep),
+    transparent
+  );
+}
+
+.blurb {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--pearl-dim);
+}
+
+.enterLabel {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card:hover .enterLabel,
+.card:global(.emirate-card-active) .enterLabel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enterLabel {
+    transition: none;
+  }
+}

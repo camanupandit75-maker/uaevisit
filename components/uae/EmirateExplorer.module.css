@@ -1,0 +1,148 @@
+.explorer {
+  position: relative;
+  padding: 56px 20px 72px;
+  background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink) 100%);
+  color: var(--pearl);
+}
+
+.headerBlock {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--pearl);
+}
+
+.divider {
+  display: block;
+  width: min(200px, 60%);
+  height: 12px;
+  margin: 16px auto;
+  color: var(--sand-deep);
+}
+
+.sectionSub {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+}
+
+.colonnadeWrap {
+  overflow-x: auto;
+  padding: 8px 0 16px;
+  scrollbar-color: var(--sand-deep) transparent;
+  scrollbar-width: thin;
+}
+
+.colonnadeWrap::-webkit-scrollbar {
+  height: 6px;
+}
+
+.colonnadeWrap::-webkit-scrollbar-thumb {
+  background: var(--glass-line);
+  border-radius: 999px;
+}
+
+.colonnade {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(180px, 1fr));
+  gap: 12px 8px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 8px;
+  min-width: min(100%, 1100px);
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.arrowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--glass-line);
+  border-radius: 50%;
+  background: rgba(250, 248, 243, 0.04);
+  color: var(--sand-soft);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.arrowBtn:hover {
+  background: rgba(201, 162, 39, 0.12);
+  border-color: var(--sand-deep);
+}
+
+.arrowBtn:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 3px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1px solid var(--glass-line);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dotActive {
+  background: var(--sand-deep);
+  border-color: var(--sand-deep);
+  transform: scale(1.15);
+}
+
+@media (max-width: 1100px) {
+  .colonnade {
+    grid-template-columns: repeat(7, minmax(160px, 200px));
+  }
+}
+
+@media (max-width: 640px) {
+  .explorer {
+    padding: 40px 12px 56px;
+  }
+}
