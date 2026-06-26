@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment Variables
+
+The Custom Itinerary feature (`/api/itinerary/generate`) requires an OpenAI API key.
+
+1. Copy `.env.local.example` to `.env.local`.
+2. Replace the placeholder with a real key from the [OpenAI API dashboard](https://platform.openai.com/api-keys).
+3. Restart the dev server after creating or editing `.env.local` — Next.js only reads env files on startup.
+
 ## Getting Started
 
 First, run the development server:
