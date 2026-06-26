@@ -586,6 +586,330 @@
   gap: 20px;
 }
 
+.customItinerarySection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.customItineraryHeader {
+  margin: 0;
+}
+
+.customItineraryTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--sand-soft);
+}
+
+.customItinerarySubtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+}
+
+.itineraryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formFieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formRowGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pearl-dim);
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--glass-line);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--pearl);
+  background: rgba(250, 248, 243, 0.04);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--sand-deep);
+}
+
+.daysStepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 160px;
+}
+
+.daysStepper .formInput {
+  text-align: center;
+}
+
+.stepperBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--glass-line);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--sand-soft);
+  background: rgba(250, 248, 243, 0.04);
+  cursor: pointer;
+}
+
+.stepperBtn:hover:not(:disabled) {
+  border-color: var(--sand-deep);
+  color: var(--pearl);
+}
+
+.stepperBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.interestTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.interestTag {
+  padding: 6px 12px;
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--pearl-dim);
+  background: rgba(250, 248, 243, 0.04);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.interestTag:hover:not(:disabled) {
+  border-color: var(--sand-deep);
+  color: var(--pearl);
+}
+
+.interestTagSelected {
+  border-color: var(--sand-deep);
+  color: var(--sand-soft);
+  background: rgba(217, 168, 79, 0.12);
+}
+
+.interestTag:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.generateBtn {
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: 1px solid var(--sand-deep);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--sand-deep);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.generateBtn:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.generateBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.itineraryError {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #e8a4a4;
+}
+
+.generatedItinerary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.generatedNarrative {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+}
+
+.itinerarySkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 248, 243, 0.06) 0%,
+    rgba(250, 248, 243, 0.12) 50%,
+    rgba(250, 248, 243, 0.06) 100%
+  );
+  background-size: 200% 100%;
+  animation: itinerarySkeletonPulse 1.4s ease-in-out infinite;
+}
+
+.skeletonLineWide {
+  width: 92%;
+}
+
+.skeletonLineMedium {
+  width: 72%;
+}
+
+.skeletonLineShort {
+  width: 38%;
+}
+
+.skeletonDay {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+@keyframes itinerarySkeletonPulse {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.hotelSuggestionsSection {
+  padding-top: 4px;
+}
+
+.hotelSuggestionsTitle {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--sand-soft);
+}
+
+.hotelSuggestionsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hotelSuggestionItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--glass-line);
+  border-radius: 10px;
+  background: rgba(250, 248, 243, 0.04);
+}
+
+.hotelSuggestionMain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hotelSuggestionName {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--pearl);
+}
+
+.hotelSuggestionMeta {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--pearl-dim);
+}
+
+.hotelSuggestionRating {
+  font-weight: 600;
+  color: var(--sand-deep);
+}
+
+.hotelSuggestionLink {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--glass-line);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand-deep);
+}
+
+.hotelSuggestionLink:hover {
+  border-color: var(--sand-deep);
+}
+
+.hotelSuggestionsEmpty {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--pearl-dim);
+}
+
 .itineraryHeader {
   margin-bottom: 4px;
 }
@@ -687,6 +1011,10 @@
 }
 
 @media (max-width: 480px) {
+  .formRowGroup {
+    grid-template-columns: 1fr;
+  }
+
   .itineraryRow {
     grid-template-columns: 1fr;
     gap: 4px;

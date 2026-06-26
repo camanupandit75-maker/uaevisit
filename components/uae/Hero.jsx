@@ -24,6 +24,7 @@ export default function Hero() {
 
       <div className={styles.skylineWrap}>
         <SkylineSvg className={styles.skyline} />
+        <div className="skyline-flag-sweep" aria-hidden="true" />
       </div>
     </section>
   );

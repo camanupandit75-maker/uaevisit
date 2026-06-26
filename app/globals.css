@@ -184,9 +184,51 @@ h1.hero-title-shimmer {
   animation: hero-title-shimmer-sweep 7s ease-in-out infinite;
 }
 
+@keyframes skyline-flag-sweep {
+  0%,
+  72% {
+    background-position: -120% 0;
+    opacity: 0;
+  }
+  76% {
+    opacity: 0.9;
+  }
+  96% {
+    background-position: 220% 0;
+    opacity: 0.9;
+  }
+  100% {
+    background-position: 220% 0;
+    opacity: 0;
+  }
+}
+
+.skyline-flag-sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 30%,
+    rgba(206, 17, 38, 0.22) 40%,
+    rgba(0, 115, 47, 0.2) 46%,
+    rgba(255, 255, 255, 0.18) 52%,
+    rgba(0, 0, 0, 0.2) 58%,
+    transparent 68%,
+    transparent 100%
+  );
+  background-size: 55% 100%;
+  background-repeat: no-repeat;
+  background-position: -120% 0;
+  animation: skyline-flag-sweep 12s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .star-field,
   .skyline-beacon,
+  .skyline-flag-sweep,
   .divider-shimmer::after,
   .emirate-card.card-enter,
   .emirate-card,
@@ -201,6 +243,11 @@ h1.hero-title-shimmer {
 
   .skyline-beacon {
     opacity: 0.85;
+  }
+
+  .skyline-flag-sweep {
+    animation: none !important;
+    opacity: 0 !important;
   }
 
   .emirate-card.card-enter {
