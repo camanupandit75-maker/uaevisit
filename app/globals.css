@@ -187,20 +187,25 @@ h1.hero-title-shimmer {
 @keyframes skyline-flag-sweep {
   0%,
   72% {
-    background-position: -120% 0;
+    background-position: 0% 0%;
     opacity: 0;
   }
   76% {
-    opacity: 0.9;
+    opacity: 1;
   }
   96% {
-    background-position: 220% 0;
-    opacity: 0.9;
+    background-position: 100% 0%;
+    opacity: 1;
   }
   100% {
-    background-position: 220% 0;
+    background-position: 100% 0%;
     opacity: 0;
   }
+}
+
+.skyline-sweep-stage {
+  position: relative;
+  display: block;
 }
 
 .skyline-flag-sweep {
@@ -211,17 +216,15 @@ h1.hero-title-shimmer {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 30%,
-    rgba(206, 17, 38, 0.22) 40%,
-    rgba(0, 115, 47, 0.2) 46%,
-    rgba(255, 255, 255, 0.18) 52%,
-    rgba(0, 0, 0, 0.2) 58%,
-    transparent 68%,
+    rgba(255, 0, 0, 0.2) 20%,
+    rgba(0, 115, 47, 0.2) 40%,
+    rgba(255, 255, 255, 0.2) 60%,
+    rgba(0, 0, 0, 0.2) 80%,
     transparent 100%
   );
-  background-size: 55% 100%;
+  background-size: 250% 100%;
   background-repeat: no-repeat;
-  background-position: -120% 0;
+  background-position: 0% 0%;
   animation: skyline-flag-sweep 12s ease-in-out infinite;
 }
 
