@@ -99,6 +99,29 @@ Rules:
 - Do not invent hotel prices or availability in the JSON — use Trivago MCP for live hotel data.`;
 }
 
+function buildTrimmedContext(details, interests) {
+  const selectedInterests = (interests ?? []).map((interest) =>
+    interest.toLowerCase(),
+  );
+  const allWhatToDo = details.whatToDo ?? [];
+
+  let whatToDo = allWhatToDo;
+  if (selectedInterests.length > 0) {
+    const filtered = allWhatToDo.filter((group) =>
+      selectedInterests.includes(group.category.toLowerCase()),
+    );
+    if (filtered.length > 0) {
+      whatToDo = filtered;
+    }
+  }
+
+  return {
+    whatToDo,
+    whatToEat: details.whatToEat ?? [],
+    suggestedItinerary: details.suggestedItinerary ?? null,
+  };
+}
+
 function buildUserMessage({
   emirate,
   details,
@@ -110,12 +133,7 @@ function buildUserMessage({
 }) {
   const interestList =
     interests?.length > 0 ? interests.join(', ') : 'general highlights';
-  const activitySummary = (details.whatToDo ?? [])
-    .map(
-      (group) =>
-        `${group.category}: ${group.activities.map((item) => item.name).join(', ')}`,
-    )
-    .join('\n');
+  const trimmedContext = buildTrimmedContext(details, interests);
 
   return `Plan a ${days}-day itinerary for ${emirate.name}, UAE.
 
@@ -126,8 +144,8 @@ Check-in: ${checkIn}
 Check-out: ${checkOut}
 Adults: ${adults}
 
-Reference activities by category:
-${activitySummary || 'Use well-known attractions for this emirate.'}
+Emirate reference content (activities, food, pacing guide):
+${JSON.stringify(trimmedContext)}
 
 Search Trivago for hotels in ${emirate.name} for these dates and ${adults} adult(s), then return the JSON itinerary described in your instructions.`;
 }
@@ -213,7 +231,8 @@ export async function POST(request) {
   try {
     const openai = getOpenAIClient();
     response = await openai.responses.create({
-      model: 'gpt-5.5',
+      model: 'gpt-5.4-mini',
+      max_output_tokens: 1500,
       input: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage },
