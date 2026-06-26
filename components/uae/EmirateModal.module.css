@@ -276,6 +276,15 @@
   color: var(--pearl-dim);
 }
 
+.staysDisclaimer {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--pearl-dim);
+  font-style: italic;
+}
+
 .staysGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -314,6 +323,14 @@
   color: var(--pearl);
 }
 
+.stayArea {
+  margin: 0 0 8px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--pearl-dim);
+}
+
 .stayStats {
   margin: 0;
   font-family: var(--font-body);
@@ -334,6 +351,14 @@
   font-weight: 600;
   color: var(--pearl-dim);
   font-style: italic;
+}
+
+.stayNote {
+  margin: 10px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--sand-soft);
 }
 
 .youtubeVideos {
@@ -522,4 +547,117 @@
 
 .doDescription {
   color: var(--pearl-dim);
+}
+
+.itinerarySections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itineraryHeader {
+  margin-bottom: 4px;
+}
+
+.itineraryTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--sand-soft);
+}
+
+.itineraryBlurb {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--pearl-dim);
+}
+
+.itineraryDay {
+  padding-top: 4px;
+}
+
+.itineraryDayTitle {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--sand-soft);
+}
+
+.itineraryDaySep {
+  margin: 0 0.35em;
+  color: var(--pearl-dim);
+  font-weight: 300;
+}
+
+.itineraryList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itineraryRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 12px;
+  padding: 0 0 0 22px;
+  margin-bottom: 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.itineraryRow:last-child {
+  margin-bottom: 0;
+}
+
+.itineraryRow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 12px;
+  height: 1px;
+  background: var(--sand-deep);
+}
+
+.itineraryTime {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+}
+
+.itineraryStopBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itineraryActivity {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--pearl);
+}
+
+.itineraryNote {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--pearl-dim);
+}
+
+@media (max-width: 480px) {
+  .itineraryRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }

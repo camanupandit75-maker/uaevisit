@@ -6,13 +6,37 @@
 
 /** @typedef {{ category: string, activities: ActivityItem[] }} DoCategory */
 
+/** @typedef {{ time: string, activity: string, note?: string }} ItineraryStop */
+
+/** @typedef {{ day: number, title: string, stops: ItineraryStop[] }} ItineraryDay */
+
+/** @typedef {{ days: number, blurb: string, schedule: ItineraryDay[] }} SuggestedItinerary */
+
+/** @typedef {{
+ *   name: string,
+ *   area: string,
+ *   score: number,
+ *   reviews: number,
+ *   pricePerNight: number,
+ *   currency: 'AED',
+ *   note?: string,
+ * }} StayPick */
+
+/** @typedef {{
+ *   fiveStar: StayPick,
+ *   fourStar: StayPick,
+ *   threeStar: StayPick,
+ *   value: StayPick,
+ * }} Stays */
+
 /** @typedef {{
  *   intro: string,
  *   overview: DetailRow[],
- *   stays: Record<string, unknown>,
+ *   stays: Stays,
  *   youtubeVideos: import('./youtubeVideos.js').YouTubeVideoTheme[],
  *   whatToEat: EatItem[],
  *   whatToDo: DoCategory[],
+ *   suggestedItinerary?: SuggestedItinerary,
  * }} EmirateDetail */
 
 /** @type {Record<string, EmirateDetail>} */
@@ -29,7 +53,44 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'October – April (mild, dry weather)' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Emirates Palace Mandarin Oriental',
+        area: 'Corniche, Abu Dhabi',
+        score: 9.5,
+        reviews: 36578,
+        pricePerNight: 1072,
+        currency: 'AED',
+        note: "The capital's flagship luxury landmark.",
+      },
+      fourStar: {
+        name: 'Al Maha Arjaan by Rotana',
+        area: 'Corniche Beach area',
+        score: 8.9,
+        reviews: 7805,
+        pricePerNight: 225,
+        currency: 'AED',
+        note: 'Serviced apartments, strong value for the rating.',
+      },
+      threeStar: {
+        name: 'ibis Abu Dhabi Gate',
+        area: 'Near Sheikh Zayed Grand Mosque',
+        score: 8.5,
+        reviews: 20408,
+        pricePerNight: 176,
+        currency: 'AED',
+        note: 'Reliable budget chain, well-reviewed.',
+      },
+      value: {
+        name: 'Premier Inn Abu Dhabi Capital Centre',
+        area: 'Capital Centre',
+        score: 8.5,
+        reviews: 19262,
+        pricePerNight: 132,
+        currency: 'AED',
+        note: 'Best-reviewed budget pick in the capital.',
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Abu Dhabi Overview',
@@ -171,6 +232,30 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 2,
+      blurb: 'A two-day balance of grand monuments, island culture, and desert edge.',
+      schedule: [
+        {
+          day: 1,
+          title: 'Culture & Capital',
+          stops: [
+            { time: 'Morning', activity: 'Sheikh Zayed Grand Mosque', note: 'Go early to avoid crowds and the midday heat.' },
+            { time: 'Afternoon', activity: 'Louvre Abu Dhabi & Saadiyat Island', note: 'Allow at least 2-3 hours for the museum.' },
+            { time: 'Evening', activity: 'Corniche walk and waterfront dinner', note: 'Sunset views over the water.' },
+          ],
+        },
+        {
+          day: 2,
+          title: 'Adventure & Desert',
+          stops: [
+            { time: 'Morning', activity: 'Qasr Al Watan presidential palace', note: '' },
+            { time: 'Afternoon', activity: 'Yas Island — Ferrari World or Yas Waterworld', note: 'Pick one; both are full half-days.' },
+            { time: 'Evening', activity: 'Desert safari toward Liwa or the Empty Quarter edge', note: 'Book an overnight camp if time allows.' },
+          ],
+        },
+      ],
+    },
   },
   dubai: {
     intro:
@@ -184,7 +269,44 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'November – March (pleasant temperatures)' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Sofitel Dubai Jumeirah Beach',
+        area: 'Jumeirah Beach',
+        score: 9.4,
+        reviews: 47223,
+        pricePerNight: 402,
+        currency: 'AED',
+        note: 'Beachfront, exceptional review volume and score.',
+      },
+      fourStar: {
+        name: 'Crowne Plaza Dubai Marina by IHG',
+        area: 'Dubai Marina',
+        score: 9.6,
+        reviews: 16834,
+        pricePerNight: 303,
+        currency: 'AED',
+        note: 'Highest review score of any Dubai pick in this list.',
+      },
+      threeStar: {
+        name: 'Rove Downtown',
+        area: 'Downtown, near Burj Khalifa',
+        score: 9.5,
+        reviews: 43123,
+        pricePerNight: 165,
+        currency: 'AED',
+        note: "Rove's design-led budget chain, consistently excellent reviews.",
+      },
+      value: {
+        name: 'Citymax Hotel Al Barsha at the Mall',
+        area: 'Al Barsha',
+        score: 8.2,
+        reviews: 16458,
+        pricePerNight: 94,
+        currency: 'AED',
+        note: 'Cheapest solid-rated option found.',
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Dubai Overview',
@@ -337,6 +459,39 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 3,
+      blurb: "Three days covering Dubai's icons, old town, and a desert day trip.",
+      schedule: [
+        {
+          day: 1,
+          title: 'Modern Dubai',
+          stops: [
+            { time: 'Morning', activity: 'Burj Khalifa observation deck', note: 'Book tickets in advance for sunset slots.' },
+            { time: 'Afternoon', activity: 'Dubai Mall & Dubai Fountain', note: '' },
+            { time: 'Evening', activity: 'Dubai Fountain Show', note: 'Shows run on a schedule — check times.' },
+          ],
+        },
+        {
+          day: 2,
+          title: 'Old Dubai & Creek',
+          stops: [
+            { time: 'Morning', activity: 'Al Fahidi Historic District', note: '' },
+            { time: 'Afternoon', activity: 'Gold & Spice Souks, abra ride across the Creek', note: '' },
+            { time: 'Evening', activity: 'Jumeirah Beach & Burj Al Arab views', note: '' },
+          ],
+        },
+        {
+          day: 3,
+          title: 'Desert & Palm',
+          stops: [
+            { time: 'Morning', activity: 'Palm Jumeirah & Atlantis The Palm', note: '' },
+            { time: 'Afternoon', activity: 'Desert safari — dune bashing and camel rides', note: 'Most safaris run afternoon into evening.' },
+            { time: 'Evening', activity: 'Desert camp dinner under the stars', note: '' },
+          ],
+        },
+      ],
+    },
   },
   sharjah: {
     intro:
@@ -350,7 +505,41 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'October – April' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'The Chedi Al Bait, Sharjah',
+        area: 'Heritage Area',
+        score: 9.5,
+        reviews: 3273,
+        pricePerNight: 460,
+        currency: 'AED',
+        note: 'Restored heritage-house luxury hotel in the old quarter.',
+      },
+      fourStar: {
+        name: 'DoubleTree by Hilton Sharjah Waterfront Hotel & Residences',
+        area: 'Waterfront',
+        score: 9.3,
+        reviews: 7801,
+        pricePerNight: 224,
+        currency: 'AED',
+      },
+      threeStar: {
+        name: 'ibis Styles Sharjah',
+        area: 'City center',
+        score: 8.5,
+        reviews: 8539,
+        pricePerNight: 123,
+        currency: 'AED',
+      },
+      value: {
+        name: 'TIME Express Hotel Al Khan',
+        area: 'Al Khan',
+        score: 8.4,
+        reviews: 2412,
+        pricePerNight: 112,
+        currency: 'AED',
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Sharjah Overview',
@@ -457,6 +646,30 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 2,
+      blurb: "Two days centered on Sharjah's museums and heritage areas.",
+      schedule: [
+        {
+          day: 1,
+          title: 'Heritage & Museums',
+          stops: [
+            { time: 'Morning', activity: 'Sharjah Heritage Area', note: '' },
+            { time: 'Afternoon', activity: 'Sharjah Museum of Islamic Civilization', note: '' },
+            { time: 'Evening', activity: 'Al Noor Island & Corniche walk', note: '' },
+          ],
+        },
+        {
+          day: 2,
+          title: 'Arts & Desert',
+          stops: [
+            { time: 'Morning', activity: 'Sharjah Arts Area & Art Museum', note: '' },
+            { time: 'Afternoon', activity: 'Mleiha Desert excursion', note: 'Combine with a guided archaeology tour if available.' },
+            { time: 'Evening', activity: 'Stargazing at Mleiha', note: "Sharjah's desert interior has some of the region's darkest skies." },
+          ],
+        },
+      ],
+    },
   },
   ajman: {
     intro:
@@ -469,7 +682,43 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'October – April' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Ajman Saray, a Luxury Collection Resort',
+        area: 'Ajman Corniche',
+        score: 9.0,
+        reviews: 8135,
+        pricePerNight: 367,
+        currency: 'AED',
+        note: "Ajman's flagship beach resort.",
+      },
+      fourStar: {
+        name: 'Wyndham Garden Ajman Corniche',
+        area: 'Corniche',
+        score: 9.1,
+        reviews: 7501,
+        pricePerNight: 233,
+        currency: 'AED',
+      },
+      threeStar: {
+        name: 'Onyx Hotel Apartments',
+        area: 'Ajman city',
+        score: 7.6,
+        reviews: 1524,
+        pricePerNight: 114,
+        currency: 'AED',
+        note: "Ajman's 3-star inventory is thin — this is the best-reviewed option available, not a standout.",
+      },
+      value: {
+        name: 'Al Smou Hotel Apartments',
+        area: 'Ajman city',
+        score: 7.4,
+        reviews: 1148,
+        pricePerNight: 90,
+        currency: 'AED',
+        note: "Budget pick; modest reviews reflect Ajman's smaller hotel market.",
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Ajman Overview',
@@ -558,6 +807,21 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 1,
+      blurb: "Ajman's small scale makes it an easy single-day visit.",
+      schedule: [
+        {
+          day: 1,
+          title: 'Corniche & Old Town',
+          stops: [
+            { time: 'Morning', activity: 'Ajman Museum (the old fort)', note: '' },
+            { time: 'Afternoon', activity: 'Ajman Corniche & Old Town harbour', note: '' },
+            { time: 'Evening', activity: 'Ajman Beach sunset', note: '' },
+          ],
+        },
+      ],
+    },
   },
   ummAlQuwain: {
     intro:
@@ -570,7 +834,44 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'November – March' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Vida Beach Resort Umm Al Quwain',
+        area: 'UAQ Beach',
+        score: 9.2,
+        reviews: 7210,
+        pricePerNight: 202,
+        currency: 'AED',
+        note: 'The clear standout property in this emirate.',
+      },
+      fourStar: {
+        name: 'Umm Al Quwain Beach Hotel',
+        area: 'City center',
+        score: 7.8,
+        reviews: 947,
+        pricePerNight: 411,
+        currency: 'AED',
+        note: 'Only 4-star option found in UAQ — limited inventory, included for completeness rather than as a strong recommendation.',
+      },
+      threeStar: {
+        name: 'Barracuda Beach Resort',
+        area: 'Al Salam Resort area',
+        score: 8.4,
+        reviews: 3688,
+        pricePerNight: 252,
+        currency: 'AED',
+        note: 'Better-reviewed than the 4-star listed above.',
+      },
+      value: {
+        name: 'Royal Residence Hotel Apartments',
+        area: 'UAQ',
+        score: 6.8,
+        reviews: 570,
+        pricePerNight: 180,
+        currency: 'AED',
+        note: "Weakest-reviewed pick in this dataset — UAQ's budget tier is genuinely limited; consider pairing UAQ as a day trip from Sharjah/Ajman rather than an overnight stay if this is a concern.",
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Umm Al Quwain Overview',
@@ -654,6 +955,21 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 1,
+      blurb: 'A relaxed day of lagoon and nature, best paired with a neighboring emirate.',
+      schedule: [
+        {
+          day: 1,
+          title: 'Lagoon & Nature',
+          stops: [
+            { time: 'Morning', activity: 'Mangrove kayaking on the lagoon', note: 'Calmest water early in the day.' },
+            { time: 'Afternoon', activity: 'Umm Al Quwain Old Town', note: '' },
+            { time: 'Evening', activity: 'Quiet beach time away from the crowds', note: '' },
+          ],
+        },
+      ],
+    },
   },
   rasAlKhaimah: {
     intro:
@@ -667,7 +983,43 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'October – April (cooler in the mountains)' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Anantara Mina Ras Al Khaimah Resort',
+        area: 'Mina Al Arab',
+        score: 9.4,
+        reviews: 6855,
+        pricePerNight: 539,
+        currency: 'AED',
+        note: 'Top-scoring property in RAK.',
+      },
+      fourStar: {
+        name: 'Hampton by Hilton Marjan Island',
+        area: 'Al Marjan Island',
+        score: 8.9,
+        reviews: 14769,
+        pricePerNight: 200,
+        currency: 'AED',
+      },
+      threeStar: {
+        name: 'Action Hotel Ras Al Khaimah',
+        area: 'City center',
+        score: 8.0,
+        reviews: 4646,
+        pricePerNight: 109,
+        currency: 'AED',
+        note: "Best-reviewed 3-star found; RAK's 3-star tier is otherwise weak.",
+      },
+      value: {
+        name: 'SH Hotel',
+        area: 'City center',
+        score: 5.4,
+        reviews: 1730,
+        pricePerNight: 79,
+        currency: 'AED',
+        note: 'Cheapest option found, but low-scoring — flagged as budget-only, not a quality pick.',
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Ras Al Khaimah Overview',
@@ -768,6 +1120,30 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 2,
+      blurb: 'Two days split between mountain adventure and the coast.',
+      schedule: [
+        {
+          day: 1,
+          title: 'Mountains',
+          stops: [
+            { time: 'Morning', activity: 'Drive up to Jebel Jais', note: '' },
+            { time: 'Afternoon', activity: 'Jebel Jais Zipline or Via Ferrata', note: 'Book the zipline ahead — slots fill up.' },
+            { time: 'Evening', activity: 'Dhayah Fort at sunset', note: '' },
+          ],
+        },
+        {
+          day: 2,
+          title: 'Coast & Heritage',
+          stops: [
+            { time: 'Morning', activity: 'Ras Al Khaimah Old Town', note: '' },
+            { time: 'Afternoon', activity: 'Al Marjan Island beaches', note: '' },
+            { time: 'Evening', activity: 'Waterfront dinner on Al Marjan', note: '' },
+          ],
+        },
+      ],
+    },
   },
   fujairah: {
     intro:
@@ -781,7 +1157,42 @@ export const emirateDetails = {
       },
       { label: 'Best Season', value: 'October – May (best for diving and hiking)' },
     ],
-    stays: {},
+    stays: {
+      fiveStar: {
+        name: 'Palace Beach Resort Fujairah',
+        area: 'Fujairah Beach',
+        score: 9.3,
+        reviews: 5131,
+        pricePerNight: 314,
+        currency: 'AED',
+      },
+      fourStar: {
+        name: 'Nour Arjaan by Rotana',
+        area: 'City center',
+        score: 8.9,
+        reviews: 4067,
+        pricePerNight: 241,
+        currency: 'AED',
+      },
+      threeStar: {
+        name: 'City Tower Hotel',
+        area: 'City center',
+        score: 7.1,
+        reviews: 6756,
+        pricePerNight: 118,
+        currency: 'AED',
+        note: "Highest review volume among Fujairah's 3-star options.",
+      },
+      value: {
+        name: 'Clifton International Hotel',
+        area: 'City center',
+        score: 6.3,
+        reviews: 2232,
+        pricePerNight: 80,
+        currency: 'AED',
+        note: 'Cheapest pick; modest score.',
+      },
+    },
     youtubeVideos: [
       {
         theme: 'Start Here — Fujairah Overview',
@@ -888,5 +1299,29 @@ export const emirateDetails = {
         ],
       },
     ],
+    suggestedItinerary: {
+      days: 2,
+      blurb: "Two days for the east coast's diving and heritage sites.",
+      schedule: [
+        {
+          day: 1,
+          title: 'Diving & Coast',
+          stops: [
+            { time: 'Morning', activity: 'Snorkeling at Snoopy Island', note: '' },
+            { time: 'Afternoon', activity: 'Scuba diving trip', note: 'Book ahead with a local dive operator.' },
+            { time: 'Evening', activity: 'Fujairah Corniche', note: '' },
+          ],
+        },
+        {
+          day: 2,
+          title: 'Heritage & Nature',
+          stops: [
+            { time: 'Morning', activity: 'Al Bidya Mosque', note: 'Believed to be the oldest mosque in the UAE.' },
+            { time: 'Afternoon', activity: 'Fujairah Fort & Heritage Village', note: '' },
+            { time: 'Evening', activity: 'Wadi Wurayah National Park', note: 'Good light for photos in late afternoon.' },
+          ],
+        },
+      ],
+    },
   },
 };

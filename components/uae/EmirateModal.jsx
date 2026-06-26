@@ -10,7 +10,7 @@ const STAY_CATEGORIES = [
   { key: 'fiveStar', label: '★★★★★' },
   { key: 'fourStar', label: '★★★★' },
   { key: 'threeStar', label: '★★★' },
-  { key: 'homestay', label: 'Homestay Pick' },
+  { key: 'value', label: 'Value Pick' },
 ];
 
 function hasStays(stays) {
@@ -92,19 +92,31 @@ function StaysView({ stays }) {
   }
 
   return (
-    <div className={styles.staysGrid}>
-      {STAY_CATEGORIES.map(({ key, label }) => {
-        const pick = stays[key];
-        if (!pick) return null;
-        return (
-          <article key={key} className={styles.stayCard}>
-            <p className={styles.stayCategory}>{label}</p>
-            <h3 className={styles.stayName}>{pick.name}</h3>
-            <StayStatRow pick={pick} />
-          </article>
-        );
-      })}
-    </div>
+    <>
+      <p className={styles.staysDisclaimer}>
+        Prices shown are indicative snapshot rates (Jul 2026) and will vary by
+        date and availability.
+      </p>
+      <div className={styles.staysGrid}>
+        {STAY_CATEGORIES.map(({ key, label }) => {
+          const pick = stays[key];
+          if (!pick) return null;
+          return (
+            <article key={key} className={styles.stayCard}>
+              <p className={styles.stayCategory}>{label}</p>
+              <h3 className={styles.stayName}>{pick.name}</h3>
+              {pick.area ? (
+                <p className={styles.stayArea}>{pick.area}</p>
+              ) : null}
+              <StayStatRow pick={pick} />
+              {pick.note ? (
+                <p className={styles.stayNote}>{pick.note}</p>
+              ) : null}
+            </article>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
@@ -186,6 +198,52 @@ function WhatToDoView({ categories }) {
               <li key={activity.name} className={styles.doRow}>
                 <strong className={styles.doName}>{activity.name}</strong>
                 <span className={styles.doDescription}>{activity.description}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function SuggestedItineraryView({ itinerary }) {
+  if (!itinerary?.schedule?.length) {
+    return (
+      <div className={styles.comingSoon}>
+        <p>Suggested itineraries for this emirate are coming soon.</p>
+      </div>
+    );
+  }
+
+  const dayLabel = itinerary.days === 1 ? '1-Day' : `${itinerary.days}-Day`;
+
+  return (
+    <div className={styles.itinerarySections}>
+      <header className={styles.itineraryHeader}>
+        <h3 className={styles.itineraryTitle}>{dayLabel} Suggested Itinerary</h3>
+        <p className={styles.itineraryBlurb}>{itinerary.blurb}</p>
+      </header>
+
+      {itinerary.schedule.map((dayPlan) => (
+        <section key={dayPlan.day} className={styles.itineraryDay}>
+          <h4 className={styles.itineraryDayTitle}>
+            Day {dayPlan.day}
+            <span className={styles.itineraryDaySep} aria-hidden="true">
+              —
+            </span>
+            {dayPlan.title}
+          </h4>
+          <ul className={styles.itineraryList}>
+            {dayPlan.stops.map((stop) => (
+              <li key={`${dayPlan.day}-${stop.time}-${stop.activity}`} className={styles.itineraryRow}>
+                <span className={styles.itineraryTime}>{stop.time}</span>
+                <div className={styles.itineraryStopBody}>
+                  <strong className={styles.itineraryActivity}>{stop.activity}</strong>
+                  {stop.note ? (
+                    <span className={styles.itineraryNote}>{stop.note}</span>
+                  ) : null}
+                </div>
               </li>
             ))}
           </ul>
@@ -316,6 +374,19 @@ export default function EmirateModal({ emirateKey, onClose }) {
           >
             What to Do
           </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-itinerary"
+            aria-selected={activeTab === 'itinerary'}
+            aria-controls="panel-itinerary"
+            className={`${styles.tab} ${
+              activeTab === 'itinerary' ? styles.tabActive : ''
+            }`}
+            onClick={() => setActiveTab('itinerary')}
+          >
+            Suggested Itinerary
+          </button>
         </div>
 
         <div className={styles.body}>
@@ -350,6 +421,15 @@ export default function EmirateModal({ emirateKey, onClose }) {
           {activeTab === 'do' && (
             <div id="panel-do" role="tabpanel" aria-labelledby="tab-do">
               <WhatToDoView categories={details.whatToDo} />
+            </div>
+          )}
+          {activeTab === 'itinerary' && (
+            <div
+              id="panel-itinerary"
+              role="tabpanel"
+              aria-labelledby="tab-itinerary"
+            >
+              <SuggestedItineraryView itinerary={details.suggestedItinerary} />
             </div>
           )}
         </div>
