@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { Cormorant_Garamond, Hanken_Grotesk, Marcellus, Noto_Naskh_Arabic } from 'next/font/google';
 import './globals.css';
 
@@ -38,7 +39,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${marcellus.variable} ${cormorantItalic.variable} ${hanken.variable} ${notoNaskh.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
