@@ -12,8 +12,9 @@ export default function Hero() {
           الإمارات
         </p>
 
-        <h1 className={`${styles.headline} hero-title-shimmer`}>
-          United Arab Emirates
+        <h1 className={styles.headline}>
+          <span className={styles.headlineLead}>United Arab </span>
+          <em className={styles.headlineEmphasis}>Emirates</em>
         </h1>
 
         <p className={styles.subtitle}>

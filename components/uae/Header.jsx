@@ -1,7 +1,6 @@
 'use client';
 
 import { emirates } from '@/data/uae/emirates';
-import StarLogo from './icons/StarLogo';
 import styles from './Header.module.css';
 
 export default function Header({ activeKey, onEmirateClick }) {
@@ -9,10 +8,10 @@ export default function Header({ activeKey, onEmirateClick }) {
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Site navigation">
         <a href="#top" className={styles.brand}>
-          <span className={styles.brandMark}>
-            <StarLogo size={22} />
+          <span className={styles.brandStar} aria-hidden="true">
+            ★
           </span>
-          <span className={styles.brandText}>Discover the Emirates.</span>
+          <span className={styles.brandText}>Discover the Emirates</span>
         </a>
 
         <ul className={styles.emirateLinks}>

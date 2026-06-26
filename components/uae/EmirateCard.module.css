@@ -58,6 +58,10 @@
 .archInner {
   stroke: var(--sand-deep);
   stroke-width: 1.4;
+}
+
+.archGlow {
+  stroke: none;
   filter: drop-shadow(0 0 3px rgba(201, 162, 39, 0.16));
 }
 

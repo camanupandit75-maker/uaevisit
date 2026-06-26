@@ -34,6 +34,8 @@
   font-weight: 500;
   color: var(--sand-deep);
   letter-spacing: 0.04em;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .headline {
@@ -43,7 +45,18 @@
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: 0.02em;
+}
+
+.headlineLead {
+  font-style: normal;
   color: var(--pearl);
+}
+
+.headlineEmphasis {
+  font-family: var(--font-display-italic), 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--sand-deep);
 }
 
 .subtitle {
@@ -62,7 +75,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 12px 8px;
 }
 
 .skyline {
@@ -70,7 +83,7 @@
   width: 100%;
   height: auto;
   min-height: 120px;
-  opacity: 0.88;
+  opacity: 1;
 }
 
 @media (max-width: 640px) {

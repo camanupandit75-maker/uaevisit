@@ -2,10 +2,12 @@ import EmirateIcon from './icons/EmirateIcon';
 import styles from './EmirateCard.module.css';
 
 const TINT_COLORS = {
-  gold: { inner: '#c9a227', glow: '#e8d6a8', deep: '#0e1b2a' },
-  oasis: { inner: '#1f5c4d', glow: '#3d8a72', deep: '#0e1b2a' },
-  sand: { inner: '#e8d6a8', glow: '#c9a227', deep: '#16263a' },
+  gold: { inner: '#c9a227', glow: '#e8d6a8' },
+  oasis: { inner: '#1f5c4d', glow: '#3d8a72' },
+  sand: { inner: '#e8d6a8', glow: '#c9a227' },
 };
+
+const ARCH_INK = '#0e1b2a';
 
 // Ogee / pointed arch — distinct from India's cusped temple niche
 const ARCH_OUTER =
@@ -52,13 +54,14 @@ export default function EmirateCard({
               <stop offset="0%" stopColor={colors.inner} stopOpacity="0.92" />
               <stop offset="20%" stopColor={colors.glow} stopOpacity="0.78" />
               <stop offset="38%" stopColor={colors.inner} stopOpacity="0.42" />
-              <stop offset="52%" stopColor={colors.deep} stopOpacity="1" />
-              <stop offset="100%" stopColor={colors.deep} stopOpacity="1" />
+              <stop offset="52%" stopColor={colors.inner} stopOpacity="0" />
+              <stop offset="100%" stopColor={colors.inner} stopOpacity="0" />
             </radialGradient>
           </defs>
           <path className={styles.archOuter} d={ARCH_OUTER} />
+          <path className={styles.archInner} d={ARCH_INNER} fill={ARCH_INK} />
           <path
-            className={`${styles.archInner} arch-glow`}
+            className={`${styles.archGlow} arch-glow`}
             d={ARCH_INNER}
             fill={`url(#${gradId})`}
           />
