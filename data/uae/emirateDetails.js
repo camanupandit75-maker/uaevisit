@@ -19,6 +19,7 @@
  *   reviews: number,
  *   pricePerNight: number,
  *   currency: 'AED',
+ *   officialWebsite: string | null,
  *   note?: string,
  * }} StayPick */
 
@@ -61,6 +62,8 @@ export const emirateDetails = {
         reviews: 36578,
         pricePerNight: 1072,
         currency: 'AED',
+        officialWebsite:
+          'https://www.mandarinoriental.com/en/abu-dhabi/emirates-palace',
         note: "The capital's flagship luxury landmark.",
       },
       fourStar: {
@@ -70,6 +73,8 @@ export const emirateDetails = {
         reviews: 7805,
         pricePerNight: 225,
         currency: 'AED',
+        officialWebsite:
+          'https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/almahaarjaanbyrotana',
         note: 'Serviced apartments, strong value for the rating.',
       },
       threeStar: {
@@ -79,6 +84,7 @@ export const emirateDetails = {
         reviews: 20408,
         pricePerNight: 176,
         currency: 'AED',
+        officialWebsite: 'https://all.accor.com/hotel/6949/index.en.shtml',
         note: 'Reliable budget chain, well-reviewed.',
       },
       value: {
@@ -88,6 +94,8 @@ export const emirateDetails = {
         reviews: 19262,
         pricePerNight: 132,
         currency: 'AED',
+        officialWebsite:
+          'https://mena.premierinn.com/en/hotel-directory/abu-dhabi/abu-dhabi-capital-centre-hotel/',
         note: 'Best-reviewed budget pick in the capital.',
       },
     },
@@ -277,6 +285,7 @@ export const emirateDetails = {
         reviews: 47223,
         pricePerNight: 402,
         currency: 'AED',
+        officialWebsite: 'https://sofitel.accor.com/en/hotels/6146.html',
         note: 'Beachfront, exceptional review volume and score.',
       },
       fourStar: {
@@ -286,6 +295,8 @@ export const emirateDetails = {
         reviews: 16834,
         pricePerNight: 303,
         currency: 'AED',
+        officialWebsite:
+          'https://www.ihg.com/crowneplaza/hotels/us/en/dubai/dxbmr/hoteldetail',
         note: 'Highest review score of any Dubai pick in this list.',
       },
       threeStar: {
@@ -295,6 +306,7 @@ export const emirateDetails = {
         reviews: 43123,
         pricePerNight: 165,
         currency: 'AED',
+        officialWebsite: 'https://www.rovehotels.com/en/hotels/downtown/',
         note: "Rove's design-led budget chain, consistently excellent reviews.",
       },
       value: {
@@ -304,6 +316,8 @@ export const emirateDetails = {
         reviews: 16458,
         pricePerNight: 94,
         currency: 'AED',
+        officialWebsite:
+          'https://www.citymaxhotels.com/uae/dubai/citymax-hotels-al-barsha-at-the-mall/',
         note: 'Cheapest solid-rated option found.',
       },
     },
@@ -513,6 +527,7 @@ export const emirateDetails = {
         reviews: 3273,
         pricePerNight: 460,
         currency: 'AED',
+        officialWebsite: 'https://www.ghmhotels.com/en/the-chedi-al-bait-sharjah/',
         note: 'Restored heritage-house luxury hotel in the old quarter.',
       },
       fourStar: {
@@ -522,6 +537,8 @@ export const emirateDetails = {
         reviews: 7801,
         pricePerNight: 224,
         currency: 'AED',
+        officialWebsite:
+          'https://www.hilton.com/en/hotels/shjawdi-doubletree-sharjah-waterfront-hotel-and-residences/',
       },
       threeStar: {
         name: 'ibis Styles Sharjah',
@@ -530,6 +547,7 @@ export const emirateDetails = {
         reviews: 8539,
         pricePerNight: 123,
         currency: 'AED',
+        officialWebsite: 'https://all.accor.com/hotel/B046/index.en.shtml',
       },
       value: {
         name: 'TIME Express Hotel Al Khan',
@@ -538,6 +556,7 @@ export const emirateDetails = {
         reviews: 2412,
         pricePerNight: 112,
         currency: 'AED',
+        officialWebsite: 'https://www.timehotels.com/time-express-hotel-al-khan-sharjah',
       },
     },
     youtubeVideos: [
@@ -690,6 +709,8 @@ export const emirateDetails = {
         reviews: 8135,
         pricePerNight: 367,
         currency: 'AED',
+        officialWebsite:
+          'https://www.marriott.com/en-us/hotels/shjlc-ajman-saray-a-luxury-collection-resort-ajman/overview/',
         note: "Ajman's flagship beach resort.",
       },
       fourStar: {
@@ -699,6 +720,8 @@ export const emirateDetails = {
         reviews: 7501,
         pricePerNight: 233,
         currency: 'AED',
+        officialWebsite:
+          'https://www.wyndhamhotels.com/wyndham-garden/ajman-united-arab-emirates/wyndham-garden-ajman-corniche/overview',
       },
       threeStar: {
         name: 'Onyx Hotel Apartments',
@@ -707,6 +730,7 @@ export const emirateDetails = {
         reviews: 1524,
         pricePerNight: 114,
         currency: 'AED',
+        officialWebsite: 'https://www.onyxhotelapartment.com/',
         note: "Ajman's 3-star inventory is thin — this is the best-reviewed option available, not a standout.",
       },
       value: {
@@ -716,6 +740,7 @@ export const emirateDetails = {
         reviews: 1148,
         pricePerNight: 90,
         currency: 'AED',
+        officialWebsite: null,
         note: "Budget pick; modest reviews reflect Ajman's smaller hotel market.",
       },
     },
@@ -842,6 +867,8 @@ export const emirateDetails = {
         reviews: 7210,
         pricePerNight: 202,
         currency: 'AED',
+        officialWebsite:
+          'https://www.vidahotels.com/en/resorts/vida-beach-resort-umm-al-quwain/',
         note: 'The clear standout property in this emirate.',
       },
       fourStar: {
@@ -851,6 +878,7 @@ export const emirateDetails = {
         reviews: 947,
         pricePerNight: 411,
         currency: 'AED',
+        officialWebsite: 'https://thebeachhoteluaq.com/',
         note: 'Only 4-star option found in UAQ — limited inventory, included for completeness rather than as a strong recommendation.',
       },
       threeStar: {
@@ -860,6 +888,7 @@ export const emirateDetails = {
         reviews: 3688,
         pricePerNight: 252,
         currency: 'AED',
+        officialWebsite: 'https://barracuda.ae/',
         note: 'Better-reviewed than the 4-star listed above.',
       },
       value: {
@@ -869,6 +898,7 @@ export const emirateDetails = {
         reviews: 570,
         pricePerNight: 180,
         currency: 'AED',
+        officialWebsite: 'https://www.royalresidenceresort.com/',
         note: "Weakest-reviewed pick in this dataset — UAQ's budget tier is genuinely limited; consider pairing UAQ as a day trip from Sharjah/Ajman rather than an overnight stay if this is a concern.",
       },
     },
@@ -991,6 +1021,7 @@ export const emirateDetails = {
         reviews: 6855,
         pricePerNight: 539,
         currency: 'AED',
+        officialWebsite: 'https://www.anantara.com/en/mina-al-arab-ras-al-khaimah',
         note: 'Top-scoring property in RAK.',
       },
       fourStar: {
@@ -1000,6 +1031,8 @@ export const emirateDetails = {
         reviews: 14769,
         pricePerNight: 200,
         currency: 'AED',
+        officialWebsite:
+          'https://www.hilton.com/en/hotels/rktmahx-hampton-marjan-island/',
       },
       threeStar: {
         name: 'Action Hotel Ras Al Khaimah',
@@ -1008,6 +1041,8 @@ export const emirateDetails = {
         reviews: 4646,
         pricePerNight: 109,
         currency: 'AED',
+        officialWebsite:
+          'https://www.actionhotels.com/portfolio/action-hotel-ras-al-khaimah/',
         note: "Best-reviewed 3-star found; RAK's 3-star tier is otherwise weak.",
       },
       value: {
@@ -1017,6 +1052,7 @@ export const emirateDetails = {
         reviews: 1730,
         pricePerNight: 79,
         currency: 'AED',
+        officialWebsite: 'https://sh.rasalkhaimahotel.com/en/',
         note: 'Cheapest option found, but low-scoring — flagged as budget-only, not a quality pick.',
       },
     },
@@ -1165,6 +1201,8 @@ export const emirateDetails = {
         reviews: 5131,
         pricePerNight: 314,
         currency: 'AED',
+        officialWebsite:
+          'https://www.addresshotels.com/en/resorts/palace-beach-resort-fujairah/',
       },
       fourStar: {
         name: 'Nour Arjaan by Rotana',
@@ -1173,6 +1211,8 @@ export const emirateDetails = {
         reviews: 4067,
         pricePerNight: 241,
         currency: 'AED',
+        officialWebsite:
+          'https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/fujairah/nourarjaanbyrotana',
       },
       threeStar: {
         name: 'City Tower Hotel',
@@ -1181,6 +1221,7 @@ export const emirateDetails = {
         reviews: 6756,
         pricePerNight: 118,
         currency: 'AED',
+        officialWebsite: 'https://omegagroupofhotels.com/city-tower-hotel/',
         note: "Highest review volume among Fujairah's 3-star options.",
       },
       value: {
@@ -1190,6 +1231,7 @@ export const emirateDetails = {
         reviews: 2232,
         pricePerNight: 80,
         currency: 'AED',
+        officialWebsite: null,
         note: 'Cheapest pick; modest score.',
       },
     },

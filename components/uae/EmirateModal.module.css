@@ -361,6 +361,37 @@
   color: var(--sand-soft);
 }
 
+.stayOfficialLink {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border: 1px solid var(--glass-line);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand-deep);
+  background: rgba(217, 168, 79, 0.08);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.stayOfficialLink:hover {
+  background: rgba(217, 168, 79, 0.16);
+  border-color: var(--sand-deep);
+}
+
+.stayNoOfficialSite {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--pearl-dim);
+}
+
 .youtubeVideos {
   display: flex;
   flex-direction: column;

@@ -82,6 +82,29 @@ function StayStatRow({ pick }) {
   );
 }
 
+function StayOfficialSite({ officialWebsite }) {
+  if (officialWebsite) {
+    return (
+      <a
+        href={officialWebsite}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.stayOfficialLink}
+      >
+        Official Site
+      </a>
+    );
+  }
+
+  if (officialWebsite === null) {
+    return (
+      <span className={styles.stayNoOfficialSite}>No official site found</span>
+    );
+  }
+
+  return null;
+}
+
 function StaysView({ stays }) {
   if (!hasStays(stays)) {
     return (
@@ -109,6 +132,7 @@ function StaysView({ stays }) {
                 <p className={styles.stayArea}>{pick.area}</p>
               ) : null}
               <StayStatRow pick={pick} />
+              <StayOfficialSite officialWebsite={pick.officialWebsite} />
               {pick.note ? (
                 <p className={styles.stayNote}>{pick.note}</p>
               ) : null}
