@@ -5,6 +5,7 @@ import EmirateExplorer from '@/components/uae/EmirateExplorer';
 import EmirateModal from '@/components/uae/EmirateModal';
 import Header from '@/components/uae/Header';
 import Hero from '@/components/uae/Hero';
+import SiteFooter from '@/components/uae/SiteFooter';
 import { emirates } from '@/data/uae/emirates';
 
 export default function UaeSite() {
@@ -39,6 +40,7 @@ export default function UaeSite() {
           onClose={() => setModalKey(null)}
         />
       )}
+      <SiteFooter />
     </div>
   );
 }

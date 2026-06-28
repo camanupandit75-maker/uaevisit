@@ -1,0 +1,260 @@
+.shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 55%, var(--ink) 100%);
+  color: var(--pearl);
+  overflow: hidden;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 14px 20px 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  background: rgba(14, 27, 42, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.brandStar {
+  flex-shrink: 0;
+  color: var(--sand-deep);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.brandText {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--sand-deep);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 56px;
+}
+
+.headerBlock {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--pearl);
+}
+
+.divider {
+  display: block;
+  width: min(200px, 60%);
+  height: 12px;
+  margin: 16px auto;
+  color: var(--sand-deep);
+}
+
+.intro {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--pearl-dim);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contentSection {
+  margin: 0;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.tickRule {
+  flex-shrink: 0;
+  width: 28px;
+  height: 1px;
+  background: var(--sand-deep);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--sand-soft);
+}
+
+.prose {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--pearl-dim);
+}
+
+.prose + .prose {
+  margin-top: 14px;
+}
+
+.comingSoon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 24px;
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  background: rgba(250, 248, 243, 0.03);
+  text-align: center;
+}
+
+.comingSoon p {
+  margin: 0;
+  max-width: 420px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+}
+
+.trustList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trustItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--glass-line);
+  border-radius: 10px;
+  background: rgba(250, 248, 243, 0.03);
+}
+
+.trustStar {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--sand-deep);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.trustText {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+}
+
+.contactEmail {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--sand-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactEmail:hover {
+  color: var(--sand-deep);
+}
+
+.contactEmail:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 3px;
+}
+
+.formNote {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(250, 248, 243, 0.5);
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 32px 16px 48px;
+  }
+
+  .header {
+    padding: 12px 12px 0;
+  }
+
+  .nav {
+    border-radius: 20px;
+  }
+
+  .brandText {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+}

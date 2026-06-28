@@ -1,0 +1,100 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formNote {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(250, 248, 243, 0.5);
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formRowGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pearl-dim);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--glass-line);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--pearl);
+  background: rgba(250, 248, 243, 0.04);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--sand-deep);
+}
+
+.submitBtn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border: 1px solid var(--sand-deep);
+  border-radius: 999px;
+  background: rgba(201, 162, 39, 0.12);
+  color: var(--sand-soft);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: rgba(201, 162, 39, 0.22);
+  color: var(--pearl);
+}
+
+.submitBtn:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .formRowGroup {
+    grid-template-columns: 1fr;
+  }
+}
