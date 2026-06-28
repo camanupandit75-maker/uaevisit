@@ -156,6 +156,15 @@
   margin-top: 14px;
 }
 
+.lastUpdated {
+  margin: -16px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: rgba(250, 248, 243, 0.45);
+  text-align: center;
+}
+
 .comingSoon {
   display: flex;
   align-items: center;

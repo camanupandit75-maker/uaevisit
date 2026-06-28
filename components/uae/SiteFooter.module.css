@@ -79,6 +79,32 @@
   color: rgba(250, 248, 243, 0.45);
 }
 
+.legalNote {
+  margin: 0;
+  max-width: 520px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: rgba(250, 248, 243, 0.38);
+}
+
+.legalLink {
+  color: rgba(250, 248, 243, 0.48);
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 162, 39, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: var(--sand-soft);
+}
+
+.legalLink:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}
+
 @media (max-width: 560px) {
   .brandText {
     font-size: 0.62rem;

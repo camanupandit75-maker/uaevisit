@@ -1,0 +1,24 @@
+.disclaimer {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: rgba(250, 248, 243, 0.45);
+}
+
+.link {
+  color: rgba(250, 248, 243, 0.55);
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 162, 39, 0.35);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--sand-soft);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}

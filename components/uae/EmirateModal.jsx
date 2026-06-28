@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { emirateDetails } from '@/data/uae/emirateDetails';
 import { emirates } from '@/data/uae/emirates';
+import InlineDisclaimer from './InlineDisclaimer';
 import StarLogo from './icons/StarLogo';
 import styles from './EmirateModal.module.css';
 
@@ -140,6 +141,10 @@ function StaysView({ stays }) {
           );
         })}
       </div>
+      <InlineDisclaimer href="/legal#pricing-availability">
+        Prices and availability shown are a snapshot and may have changed. Some
+        links are affiliate links.
+      </InlineDisclaimer>
     </>
   );
 }
@@ -310,6 +315,10 @@ function StaticItineraryContent({ itinerary }) {
         <p className={styles.itineraryBlurb}>{itinerary.blurb}</p>
       </header>
       <ItinerarySchedule schedule={itinerary.schedule} />
+      <InlineDisclaimer href="/legal#ai-generated-content">
+        Itineraries are AI-generated suggestions. Verify hours, prices, and
+        availability before you go.
+      </InlineDisclaimer>
     </div>
   );
 }
@@ -610,6 +619,10 @@ function CustomItineraryGenerator({ emirateKey, defaultDays, whatToDo }) {
                 </h4>
                 <HotelSuggestionsList hotels={result.hotelSuggestions} />
               </section>
+              <InlineDisclaimer href="/legal#ai-generated-content">
+                Itineraries are AI-generated suggestions. Verify hours, prices,
+                and availability before you go.
+              </InlineDisclaimer>
             </>
           ) : null}
         </div>
