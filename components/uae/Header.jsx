@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { emirates } from '@/data/uae/emirates';
 import styles from './Header.module.css';
 
@@ -14,21 +15,27 @@ export default function Header({ activeKey, onEmirateClick }) {
           <span className={styles.brandText}>Discover the Emirates</span>
         </a>
 
-        <ul className={styles.emirateLinks}>
-          {emirates.map((emirate) => (
-            <li key={emirate.key}>
-              <button
-                type="button"
-                className={`${styles.emirateLink} ${
-                  activeKey === emirate.key ? styles.emirateLinkActive : ''
-                }`}
-                onClick={() => onEmirateClick?.(emirate.key)}
-              >
-                {emirate.name}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.navLinks}>
+          <Link href="/events" className={styles.siteLink}>
+            Events
+          </Link>
+
+          <ul className={styles.emirateLinks}>
+            {emirates.map((emirate) => (
+              <li key={emirate.key}>
+                <button
+                  type="button"
+                  className={`${styles.emirateLink} ${
+                    activeKey === emirate.key ? styles.emirateLinkActive : ''
+                  }`}
+                  onClick={() => onEmirateClick?.(emirate.key)}
+                >
+                  {emirate.name}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   );

@@ -45,6 +45,43 @@
   color: var(--sand-deep);
 }
 
+.navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 12px;
+}
+
+.siteLink {
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand-deep);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.siteLink:hover {
+  color: var(--pearl);
+  border-color: var(--glass-line);
+  background: rgba(250, 248, 243, 0.04);
+}
+
+.siteLink:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}
+
 .emirateLinks {
   display: flex;
   flex-wrap: wrap;
@@ -91,6 +128,10 @@
 @media (max-width: 900px) {
   .nav {
     border-radius: 20px;
+    justify-content: center;
+  }
+
+  .navLinks {
     justify-content: center;
   }
 

@@ -11,7 +11,7 @@ export default function StaticPageShell({ title, eyebrow, intro, children }) {
 
       <header className={styles.header}>
         <nav className={styles.nav} aria-label="Site navigation">
-          <Link href="/uae" className={styles.brand}>
+          <Link href="/" className={styles.brand}>
             <span className={styles.brandStar} aria-hidden="true">
               ★
             </span>

@@ -1,0 +1,97 @@
+.strip {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--glass-line);
+}
+
+.stripHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.tickRule {
+  flex-shrink: 0;
+  width: 28px;
+  height: 1px;
+  background: var(--sand-deep);
+}
+
+.stripTitle {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--sand-soft);
+}
+
+.viewAll {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand-deep);
+  transition: color 0.2s ease;
+}
+
+.viewAll:hover {
+  color: var(--sand-soft);
+}
+
+.viewAll:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}
+
+.stripScroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-color: var(--sand-deep) transparent;
+  scrollbar-width: thin;
+}
+
+.stripScroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.stripScroll::-webkit-scrollbar-thumb {
+  background: var(--glass-line);
+  border-radius: 999px;
+}
+
+.stripItem {
+  flex: 0 0 min(260px, 78vw);
+  padding: 10px 10px 12px;
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  background: rgba(250, 248, 243, 0.03);
+}
+
+.stripOfficial {
+  display: inline-block;
+  margin: 4px 8px 0;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand-deep);
+}
+
+.stripOfficial:hover {
+  color: var(--sand-soft);
+}
+
+.stripOfficial:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}

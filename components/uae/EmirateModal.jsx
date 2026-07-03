@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { emirateDetails } from '@/data/uae/emirateDetails';
 import { emirates } from '@/data/uae/emirates';
 import InlineDisclaimer from './InlineDisclaimer';
+import EmirateEventsStrip from './EmirateEventsStrip';
 import StarLogo from './icons/StarLogo';
 import styles from './EmirateModal.module.css';
 
@@ -48,7 +49,7 @@ function DetailGrid({ rows }) {
   );
 }
 
-function OverviewView({ details }) {
+function OverviewView({ details, emirateKey, emirateName }) {
   return (
     <>
       <p className={styles.intro}>{details.intro}</p>
@@ -56,6 +57,7 @@ function OverviewView({ details }) {
         <SectionHeader title="Key Facts" />
         <DetailGrid rows={details.overview} />
       </section>
+      <EmirateEventsStrip emirateKey={emirateKey} emirateName={emirateName} />
     </>
   );
 }
@@ -802,7 +804,11 @@ export default function EmirateModal({ emirateKey, onClose }) {
               role="tabpanel"
               aria-labelledby="tab-overview"
             >
-              <OverviewView details={details} />
+              <OverviewView
+                details={details}
+                emirateKey={emirateKey}
+                emirateName={emirate.name}
+              />
             </div>
           )}
           {activeTab === 'stays' && (

@@ -1,0 +1,177 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 4px 12px;
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  background: rgba(250, 248, 243, 0.03);
+  color: inherit;
+  text-align: center;
+}
+
+.cardCompact {
+  border: none;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+}
+
+.archBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 200 / 164;
+  max-height: 140px;
+}
+
+.cardCompact .archBox {
+  max-height: 100px;
+}
+
+.archSvg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.archOuter {
+  fill: none;
+  stroke: var(--sand-deep);
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.archInner {
+  stroke: var(--sand-deep);
+  stroke-width: 1.4;
+}
+
+.archGlow {
+  stroke: none;
+  filter: drop-shadow(0 0 3px rgba(201, 162, 39, 0.16));
+}
+
+.categoryMark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  fill: var(--sand-soft);
+}
+
+.cardCompact .categoryMark {
+  font-size: 18px;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 12px 14px;
+}
+
+.cardCompact .textBlock {
+  padding: 0 8px 8px;
+}
+
+.meta {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+}
+
+.category {
+  color: var(--sand-deep);
+}
+
+.metaSep {
+  margin: 0 4px;
+  opacity: 0.6;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--pearl);
+}
+
+.cardCompact .name {
+  font-size: 0.95rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.monthBadge,
+.dateVariesBadge {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--pearl-dim);
+}
+
+.dateVariesBadge {
+  border-color: rgba(201, 162, 39, 0.35);
+  color: var(--sand-soft);
+}
+
+.blurb {
+  margin: 12px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--pearl-dim);
+  text-align: left;
+}
+
+.officialLink {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.officialLink:hover {
+  color: var(--sand-soft);
+}
+
+.officialLink:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}
+
+.stripLink {
+  display: block;
+  min-width: 220px;
+  max-width: 260px;
+  text-decoration: none;
+  color: inherit;
+}
