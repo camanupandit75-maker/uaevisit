@@ -16,6 +16,9 @@ export default function Header({ activeKey, onEmirateClick }) {
         </a>
 
         <div className={styles.navLinks}>
+          <Link href="/essentials" className={styles.siteLink}>
+            Essentials
+          </Link>
           <Link href="/events" className={styles.siteLink}>
             Events
           </Link>
