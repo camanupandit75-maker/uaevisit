@@ -31,6 +31,23 @@
  * }} Stays */
 
 /** @typedef {{
+ *   name: string,
+ *   vibe: string,
+ *   bestFor: string,
+ *   highlights: string[],
+ *   stayHere: boolean,
+ * }} Neighborhood */
+
+/** @typedef {'attraction' | 'hotel' | 'food'} MapPinType */
+
+/** @typedef {{
+ *   name: string,
+ *   lat: number,
+ *   lng: number,
+ *   type: MapPinType,
+ * }} MapPin */
+
+/** @typedef {{
  *   intro: string,
  *   overview: DetailRow[],
  *   stays: Stays,
@@ -38,6 +55,8 @@
  *   whatToEat: EatItem[],
  *   whatToDo: DoCategory[],
  *   suggestedItinerary?: SuggestedItinerary,
+ *   neighborhoods: Neighborhood[],
+ *   mapPins: MapPin[],
  * }} EmirateDetail */
 
 /** @type {Record<string, EmirateDetail>} */
@@ -264,6 +283,59 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Corniche',
+        vibe: 'Sweeping waterfront promenade with parks, beaches, and grand hotels.',
+        bestFor: 'First-time visitors who want the classic capital skyline and sea views.',
+        highlights: ['Corniche Beach', 'Emirates Palace views', 'Heritage Village', 'Evening cycling paths'],
+        stayHere: true,
+      },
+      {
+        name: 'Saadiyat',
+        vibe: 'Cultural island of museums, galleries, and upscale beach resorts.',
+        bestFor: 'Art lovers and slow-paced stays near Louvre Abu Dhabi.',
+        highlights: ['Louvre Abu Dhabi', 'Saadiyat Beach', 'Manarat Al Saadiyat', 'Golf courses'],
+        stayHere: true,
+      },
+      {
+        name: 'Yas Island',
+        vibe: 'Entertainment hub built around theme parks, a marina, and the F1 circuit.',
+        bestFor: 'Families, thrill-seekers, and Grand Prix weekend visitors.',
+        highlights: ['Ferrari World', 'Yas Waterworld', 'Warner Bros. World', 'Yas Marina Circuit'],
+        stayHere: true,
+      },
+      {
+        name: 'Al Reem',
+        vibe: 'Modern island district of towers, malls, and marina walkways.',
+        bestFor: 'Business travellers and longer stays with mall-and-dining convenience.',
+        highlights: ['Reem Mall', 'Marina promenade', 'Canal views', 'Reem Central Park'],
+        stayHere: false,
+      },
+      {
+        name: 'Downtown / Al Markaziyah',
+        vibe: 'The administrative heart — government quarter, souks, and city-center energy.',
+        bestFor: 'Exploring the capital on foot and pairing museums with local dining.',
+        highlights: ['Qasr Al Hosn', 'World Trade Center souk', 'Central Market', 'Cultural Foundation'],
+        stayHere: true,
+      },
+    ],
+    mapPins: [
+      { name: 'Sheikh Zayed Grand Mosque', lat: 24.4129, lng: 54.4747, type: 'attraction' },
+      { name: 'Louvre Abu Dhabi', lat: 24.5338, lng: 54.3982, type: 'attraction' },
+      { name: 'Qasr Al Watan', lat: 24.4622, lng: 54.3048, type: 'attraction' },
+      { name: 'Ferrari World', lat: 24.4838, lng: 54.6071, type: 'attraction' },
+      { name: 'Yas Waterworld', lat: 24.4876, lng: 54.6006, type: 'attraction' },
+      { name: 'Corniche Walk or Cycle', lat: 24.4709, lng: 54.3461, type: 'attraction' },
+      { name: 'Mangrove Kayaking', lat: 24.452, lng: 54.4045, type: 'attraction' },
+      { name: 'Emirates Palace Mandarin Oriental', lat: 24.4617, lng: 54.3176, type: 'hotel' },
+      { name: 'Al Maha Arjaan by Rotana', lat: 24.4821, lng: 54.3542, type: 'hotel' },
+      { name: 'ibis Abu Dhabi Gate', lat: 24.4133, lng: 54.474, type: 'hotel' },
+      { name: 'Premier Inn Abu Dhabi Capital Centre', lat: 24.4208, lng: 54.4345, type: 'hotel' },
+      { name: 'Machboos', lat: 24.4942, lng: 54.382, type: 'food' },
+      { name: 'Luqaimat', lat: 24.4793, lng: 54.3575, type: 'food' },
+    ],
   },
   dubai: {
     intro:
@@ -506,6 +578,66 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Downtown',
+        vibe: 'The postcard skyline — Burj Khalifa, Dubai Mall, and fountain shows at your doorstep.',
+        bestFor: 'Icon hunters and first-time Dubai visitors who want everything walkable.',
+        highlights: ['Burj Khalifa', 'Dubai Mall', 'Dubai Fountain', 'Dubai Opera'],
+        stayHere: true,
+      },
+      {
+        name: 'Marina / JBR',
+        vibe: 'High-rise marina living with a beach strip, yachts, and sunset promenades.',
+        bestFor: 'Young travellers, joggers, and anyone who wants beach plus nightlife.',
+        highlights: ['Marina Walk', 'JBR Beach', 'The Beach mall', 'Ain Dubai views'],
+        stayHere: true,
+      },
+      {
+        name: 'Deira / Old Dubai',
+        vibe: "Creek-side souks, abras, and layered trading heritage on the city's original shore.",
+        bestFor: 'Culture, bargain hunting, and authentic street-level Dubai.',
+        highlights: ['Gold Souk', 'Spice Souk', 'Al Fahidi', 'Abra creek crossings'],
+        stayHere: false,
+      },
+      {
+        name: 'Jumeirah',
+        vibe: 'Low-rise coastal villas, public beaches, and classic Dubai glamour.',
+        bestFor: 'Beach days, café culture, and a calmer stay away from downtown crowds.',
+        highlights: ['Jumeirah Beach', 'Burj Al Arab views', 'Mercato Mall', 'Kite Beach nearby'],
+        stayHere: true,
+      },
+      {
+        name: 'Business Bay',
+        vibe: 'Glass towers along the Dubai Canal with strong dining and rooftop bar scene.',
+        bestFor: 'Professionals and couples who want central access without Marina prices.',
+        highlights: ['Dubai Canal walkways', 'Bay Avenue', 'Marasi Drive', 'Downtown proximity'],
+        stayHere: true,
+      },
+      {
+        name: 'Palm Jumeirah',
+        vibe: 'The iconic palm-shaped island of resorts, beach clubs, and Atlantis.',
+        bestFor: 'Resort stays, special occasions, and pool-and-beach holidays.',
+        highlights: ['Atlantis The Palm', 'Palm West Beach', 'The Pointe', 'Monorail rides'],
+        stayHere: true,
+      },
+    ],
+    mapPins: [
+      { name: 'Burj Khalifa Observation Deck', lat: 25.1972, lng: 55.2744, type: 'attraction' },
+      { name: 'Dubai Fountain Show', lat: 25.1952, lng: 55.2754, type: 'attraction' },
+      { name: 'Palm Jumeirah & Atlantis', lat: 25.1304, lng: 55.1177, type: 'attraction' },
+      { name: 'Al Fahidi Historic District', lat: 25.2635, lng: 55.2974, type: 'attraction' },
+      { name: 'Gold & Spice Souks', lat: 25.2868, lng: 55.301, type: 'attraction' },
+      { name: 'Ski Dubai', lat: 25.1172, lng: 55.2006, type: 'attraction' },
+      { name: 'Desert Safari & Dune Bashing', lat: 24.9998, lng: 55.556, type: 'attraction' },
+      { name: 'Sofitel Dubai Jumeirah Beach', lat: 25.2282, lng: 55.2548, type: 'hotel' },
+      { name: 'Crowne Plaza Dubai Marina by IHG', lat: 25.0816, lng: 55.1413, type: 'hotel' },
+      { name: 'Rove Downtown', lat: 25.1925, lng: 55.28, type: 'hotel' },
+      { name: 'Citymax Hotel Al Barsha at the Mall', lat: 25.1138, lng: 55.2012, type: 'hotel' },
+      { name: 'Shawarma', lat: 25.2376, lng: 55.2805, type: 'food' },
+      { name: 'Karak Chai', lat: 25.2048, lng: 55.2708, type: 'food' },
+    ],
   },
   sharjah: {
     intro:
@@ -689,6 +821,44 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Al Majaz',
+        vibe: 'Lagoon-front dining, fountains, and family-friendly waterfront evenings.',
+        bestFor: 'Relaxed evenings after museum days and easy corniche strolls.',
+        highlights: ['Al Majaz Waterfront', 'Sharjah Fountain', 'Lagoon restaurants', 'Al Noor Mosque views'],
+        stayHere: true,
+      },
+      {
+        name: 'Heart of Sharjah',
+        vibe: 'Restored heritage quarter of coral-stone lanes, souks, and museums.',
+        bestFor: "History buffs and photographers — the emirate's cultural core.",
+        highlights: ['Sharjah Heritage Museum', 'Souk Al Arsah', 'Calligraphy Museum', 'Art Foundation spaces'],
+        stayHere: false,
+      },
+      {
+        name: 'Al Khan',
+        vibe: 'Lagoon beach, resort strip, and a quieter coastal counterpoint to the city center.',
+        bestFor: "Beach time paired with Sharjah's museum circuit.",
+        highlights: ['Al Khan Beach', 'Sharjah Aquarium nearby', 'Lagoon cafés', 'Corniche links'],
+        stayHere: true,
+      },
+    ],
+    mapPins: [
+      { name: 'Sharjah Museum of Islamic Civilization', lat: 25.3617, lng: 55.3878, type: 'attraction' },
+      { name: 'Heritage & Arts Areas', lat: 25.3586, lng: 55.3842, type: 'attraction' },
+      { name: 'Sharjah Art Foundation', lat: 25.3605, lng: 55.381, type: 'attraction' },
+      { name: 'Al Noor Island', lat: 25.3339, lng: 55.3875, type: 'attraction' },
+      { name: 'Mleiha Desert', lat: 25.13, lng: 55.783, type: 'attraction' },
+      { name: 'The Chedi Al Bait, Sharjah', lat: 25.3542, lng: 55.3848, type: 'hotel' },
+      { name: 'DoubleTree by Hilton Sharjah Waterfront Hotel & Residences', lat: 25.3325, lng: 55.3748, type: 'hotel' },
+      { name: 'ibis Styles Sharjah', lat: 25.332, lng: 55.3965, type: 'hotel' },
+      { name: 'TIME Express Hotel Al Khan', lat: 25.3275, lng: 55.3755, type: 'hotel' },
+      { name: 'Machboos', lat: 25.3578, lng: 55.3865, type: 'food' },
+      { name: 'Karak Chai', lat: 25.3592, lng: 55.3838, type: 'food' },
+      { name: 'Regag Bread', lat: 25.3581, lng: 55.3849, type: 'food' },
+    ],
   },
   ajman: {
     intro:
@@ -847,6 +1017,43 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Ajman Corniche',
+        vibe: 'A compact seafront of cafés, fishing dhows, and unhurried Gulf sunsets.',
+        bestFor: 'Budget-friendly beach breaks and day trips from Sharjah or Dubai.',
+        highlights: ['Corniche promenade', 'Public beaches', 'Sunset dining', 'Dhow harbour views'],
+        stayHere: true,
+      },
+      {
+        name: 'Al Nuaimiya',
+        vibe: 'Central residential district with local malls, mosques, and everyday city life.',
+        bestFor: 'Visitors who want an affordable base away from resort strips.',
+        highlights: ['City Centre Ajman', 'Local souks', 'Easy highway access', 'Authentic dining'],
+        stayHere: false,
+      },
+      {
+        name: 'Al Zorah',
+        vibe: 'Mangrove-backed lagoon development with golf, nature, and newer resorts.',
+        bestFor: 'Nature-minded stays and golfers seeking a quieter emirate escape.',
+        highlights: ['Al Zorah Golf Club', 'Mangrove kayaking', 'Birdwatching', 'Lagoon resorts'],
+        stayHere: true,
+      },
+    ],
+    mapPins: [
+      { name: 'Ajman Corniche', lat: 25.4052, lng: 55.4318, type: 'attraction' },
+      { name: 'Ajman Beach', lat: 25.4015, lng: 55.4285, type: 'attraction' },
+      { name: 'Ajman Museum', lat: 25.4134, lng: 55.4453, type: 'attraction' },
+      { name: 'Ajman Old Town', lat: 25.4148, lng: 55.4475, type: 'attraction' },
+      { name: 'Ajman Saray, a Luxury Collection Resort', lat: 25.4048, lng: 55.4298, type: 'hotel' },
+      { name: 'Wyndham Garden Ajman Corniche', lat: 25.4035, lng: 55.4325, type: 'hotel' },
+      { name: 'Onyx Hotel Apartments', lat: 25.4075, lng: 55.5125, type: 'hotel' },
+      { name: 'Al Smou Hotel Apartments', lat: 25.4085, lng: 55.5135, type: 'hotel' },
+      { name: 'Fresh Seafood', lat: 25.4042, lng: 55.4305, type: 'food' },
+      { name: 'Machboos', lat: 25.4068, lng: 55.4355, type: 'food' },
+      { name: 'Grilled Fish', lat: 25.4028, lng: 55.4278, type: 'food' },
+    ],
   },
   ummAlQuwain: {
     intro:
@@ -1000,6 +1207,43 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'UAQ Corniche & Old Town',
+        vibe: "Sleepy waterfront lanes, a historic fort area, and the emirate's social heart.",
+        bestFor: 'Slow travel and an off-the-radar glimpse of pre-boom UAE life.',
+        highlights: ['UAQ Fort Museum', 'Corniche walks', 'Fishing harbour', 'Local fish markets'],
+        stayHere: true,
+      },
+      {
+        name: 'Dreamland & Falaj Al Mualla',
+        vibe: 'Inland leisure zone around the lagoon and long-running family attractions.',
+        bestFor: 'Families and day-trippers combining waterparks with mangrove outings.',
+        highlights: ['Dreamland Aqua Park', 'Lagoon views', 'Picnic spots', 'Quiet residential streets'],
+        stayHere: false,
+      },
+      {
+        name: 'Khor Al Beidiyah',
+        vibe: "Mangrove channels and bird-rich wetlands on the emirate's quiet edge.",
+        bestFor: 'Kayakers, birdwatchers, and anyone escaping the northern city sprawl.',
+        highlights: ['Mangrove forests', 'Flamingo sightings', 'Paddle tours', 'Sunrise photography'],
+        stayHere: false,
+      },
+    ],
+    mapPins: [
+      { name: 'Mangrove Kayaking', lat: 25.5645, lng: 55.5595, type: 'attraction' },
+      { name: 'Birdwatching', lat: 25.5785, lng: 55.5455, type: 'attraction' },
+      { name: 'Dreamland Aqua Park', lat: 25.5885, lng: 55.6595, type: 'attraction' },
+      { name: 'Jet Skiing on the Lagoon', lat: 25.5625, lng: 55.5555, type: 'attraction' },
+      { name: 'Vida Beach Resort Umm Al Quwain', lat: 25.5505, lng: 55.5555, type: 'hotel' },
+      { name: 'Umm Al Quwain Beach Hotel', lat: 25.5648, lng: 55.5538, type: 'hotel' },
+      { name: 'Barracuda Beach Resort', lat: 25.5485, lng: 55.5525, type: 'hotel' },
+      { name: 'Royal Residence Hotel Apartments', lat: 25.5515, lng: 55.5545, type: 'hotel' },
+      { name: 'Fresh Lagoon Seafood', lat: 25.5635, lng: 55.5545, type: 'food' },
+      { name: 'Machboos', lat: 25.5655, lng: 55.5525, type: 'food' },
+      { name: 'Grilled Hammour', lat: 25.5615, lng: 55.5565, type: 'food' },
+    ],
   },
   rasAlKhaimah: {
     intro:
@@ -1180,6 +1424,44 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Al Marjan Island',
+        vibe: 'Man-made island arc of resorts, beaches, and waterfront dining.',
+        bestFor: 'Beach holidays and resort pools with minimal driving.',
+        highlights: ['Resort beaches', 'Waterfront restaurants', 'Promenade walks', 'Sunset views'],
+        stayHere: true,
+      },
+      {
+        name: 'RAK City & Old Town',
+        vibe: 'Compact capital with souks, a historic fort, and mountain views inland.',
+        bestFor: 'Balancing culture with easy access to both coast and Hajar trails.',
+        highlights: ['RAK National Museum', 'Old Town souks', 'Corniche Al Qawasim', 'Dhayah Fort day trips'],
+        stayHere: true,
+      },
+      {
+        name: 'Jebel Jais Gateway',
+        vibe: "Mountain-road base for the UAE's highest peak, ziplines, and wadi drives.",
+        bestFor: 'Adventure travellers and cooler-weather hiking escapes.',
+        highlights: ['Jebel Jais Viewing Deck', 'Toroverde zipline', 'Mountain roads', 'Wadi picnics'],
+        stayHere: false,
+      },
+    ],
+    mapPins: [
+      { name: 'Jebel Jais Zipline', lat: 25.9435, lng: 56.1425, type: 'attraction' },
+      { name: 'Via Ferrata & Hiking', lat: 25.9385, lng: 56.1385, type: 'attraction' },
+      { name: 'Dhayah Fort', lat: 25.8885, lng: 56.0745, type: 'attraction' },
+      { name: 'Ras Al Khaimah Old Town', lat: 25.7895, lng: 55.9432, type: 'attraction' },
+      { name: 'Al Marjan Island Beaches', lat: 25.6795, lng: 55.7395, type: 'attraction' },
+      { name: 'Anantara Mina Ras Al Khaimah Resort', lat: 25.6855, lng: 55.7365, type: 'hotel' },
+      { name: 'Hampton by Hilton Marjan Island', lat: 25.6815, lng: 55.7385, type: 'hotel' },
+      { name: 'Action Hotel Ras Al Khaimah', lat: 25.7865, lng: 55.9415, type: 'hotel' },
+      { name: 'SH Hotel', lat: 25.7885, lng: 55.9455, type: 'hotel' },
+      { name: 'Mountain & Coastal Fusion', lat: 25.7905, lng: 55.9445, type: 'food' },
+      { name: 'Machboos', lat: 25.7875, lng: 55.9425, type: 'food' },
+      { name: 'Dates & Local Honey', lat: 25.7855, lng: 55.9465, type: 'food' },
+    ],
   },
   fujairah: {
     intro:
@@ -1365,5 +1647,44 @@ export const emirateDetails = {
         },
       ],
     },
+
+    neighborhoods: [
+      {
+        name: 'Fujairah City & Corniche',
+        vibe: 'East-coast capital with a historic fort, Friday market energy, and Gulf of Oman breezes.',
+        bestFor: 'Divers and road-trippers using Fujairah as an east-coast hub.',
+        highlights: ['Fujairah Fort', 'Heritage Village', 'Corniche walks', 'Central souks'],
+        stayHere: true,
+      },
+      {
+        name: 'Al Aqah',
+        vibe: 'Resort strip beneath the Hajar foothills with sandy beaches and dive centres.',
+        bestFor: 'Beach resorts, snorkelling, and mountain-backdrop sunsets.',
+        highlights: ['Al Aqah Beach', 'Snoopy Island trips', 'Dive operators', 'Sandy Beach Resort area'],
+        stayHere: true,
+      },
+      {
+        name: 'Dibba & North Coast',
+        vibe: 'Northern fjord-like coastline of dramatic bays, fishing villages, and dive sites.',
+        bestFor: 'Multi-day diving itineraries and rugged coastal exploration.',
+        highlights: ['Dibba Rock diving', 'Coastal drives', 'Hidden coves', 'Omani border scenery'],
+        stayHere: false,
+      },
+    ],
+    mapPins: [
+      { name: 'Snoopy Island Snorkeling', lat: 25.5025, lng: 56.3615, type: 'attraction' },
+      { name: 'Scuba Diving', lat: 25.4985, lng: 56.3585, type: 'attraction' },
+      { name: 'Al Bidya Mosque', lat: 25.4215, lng: 56.3485, type: 'attraction' },
+      { name: 'Fujairah Fort', lat: 25.1285, lng: 56.3385, type: 'attraction' },
+      { name: 'Heritage Village', lat: 25.1295, lng: 56.3395, type: 'attraction' },
+      { name: 'Wadi Wurayah National Park', lat: 25.2985, lng: 56.3115, type: 'attraction' },
+      { name: 'Palace Beach Resort Fujairah', lat: 25.1245, lng: 56.3565, type: 'hotel' },
+      { name: 'Nour Arjaan by Rotana', lat: 25.1288, lng: 56.3265, type: 'hotel' },
+      { name: 'City Tower Hotel', lat: 25.1295, lng: 56.3275, type: 'hotel' },
+      { name: 'Clifton International Hotel', lat: 25.1305, lng: 56.3285, type: 'hotel' },
+      { name: 'Fresh Gulf of Oman Seafood', lat: 25.1275, lng: 56.3355, type: 'food' },
+      { name: 'Machboos', lat: 25.1298, lng: 56.3268, type: 'food' },
+      { name: 'Grilled Kingfish', lat: 25.1265, lng: 56.3345, type: 'food' },
+    ],
   },
 };

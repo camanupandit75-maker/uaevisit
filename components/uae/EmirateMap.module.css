@@ -1,0 +1,72 @@
+.mapWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map {
+  width: 100%;
+  height: 360px;
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ink-soft);
+  z-index: 0;
+}
+
+.pinIcon {
+  background: none;
+  border: none;
+}
+
+.popupName {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.popupType {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(14, 27, 42, 0.65);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--pearl-dim);
+}
+
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 248, 243, 0.65);
+  box-shadow: 0 0 0 1px rgba(14, 27, 42, 0.25);
+}
+
+@media (max-width: 560px) {
+  .map {
+    height: 300px;
+  }
+}

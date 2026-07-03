@@ -1010,6 +1010,159 @@
   color: var(--pearl-dim);
 }
 
+.neighborhoodGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .neighborhoodGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.neighborhoodCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  background: rgba(250, 248, 243, 0.03);
+  overflow: hidden;
+}
+
+.neighborhoodArchBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 200 / 120;
+  max-height: 120px;
+}
+
+.neighborhoodArchSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.neighborhoodArchOuter {
+  fill: none;
+  stroke: var(--sand-deep);
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.neighborhoodArchInner {
+  stroke: var(--sand-deep);
+  stroke-width: 1.4;
+}
+
+.neighborhoodArchGlow {
+  stroke: none;
+  filter: drop-shadow(0 0 3px rgba(201, 162, 39, 0.16));
+}
+
+.stayHereBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--sand-deep);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+  background: rgba(14, 27, 42, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.15);
+}
+
+.neighborhoodBody {
+  padding: 12px 16px 16px;
+}
+
+.neighborhoodName {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--sand-soft);
+}
+
+.neighborhoodVibe {
+  margin: 0 0 10px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--pearl-dim);
+}
+
+.neighborhoodBestFor {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--pearl-dim);
+}
+
+.neighborhoodLabel {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+}
+
+.neighborhoodHighlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.neighborhoodHighlights li {
+  position: relative;
+  padding-left: 14px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(250, 248, 243, 0.55);
+}
+
+.neighborhoodHighlights li + li {
+  margin-top: 6px;
+}
+
+.neighborhoodHighlights li::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.55rem;
+  color: var(--sand-deep);
+  opacity: 0.75;
+}
+
+.mapLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  background: rgba(250, 248, 243, 0.03);
+}
+
+.mapLoading p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--pearl-dim);
+}
+
 @media (max-width: 480px) {
   .formRowGroup {
     grid-template-columns: 1fr;

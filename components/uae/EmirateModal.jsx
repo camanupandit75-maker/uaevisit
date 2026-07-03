@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useEffect, useMemo, useState } from 'react';
 import { emirateDetails } from '@/data/uae/emirateDetails';
 import { emirates } from '@/data/uae/emirates';
@@ -7,6 +8,15 @@ import InlineDisclaimer from './InlineDisclaimer';
 import EmirateEventsStrip from './EmirateEventsStrip';
 import StarLogo from './icons/StarLogo';
 import styles from './EmirateModal.module.css';
+
+const EmirateMap = dynamic(() => import('./EmirateMap'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.mapLoading}>
+      <p>Loading map…</p>
+    </div>
+  ),
+});
 
 const STAY_CATEGORIES = [
   { key: 'fiveStar', label: '★★★★★' },
@@ -187,6 +197,103 @@ function YouTubeVideosView({ videos }) {
       ))}
     </div>
   );
+}
+
+const NEIGHBORHOOD_ARCH_OUTER =
+  'M 6 158 L 6 78 C 6 48 38 18 100 8 C 162 18 194 48 194 78 L 194 158 Z';
+const NEIGHBORHOOD_ARCH_INNER =
+  'M 18 154 L 18 80 C 18 54 46 28 100 20 C 154 28 182 54 182 80 L 182 154 Z';
+const NEIGHBORHOOD_ARCH_INK = '#0e1b2a';
+
+function NeighborhoodsView({ neighborhoods }) {
+  if (!neighborhoods?.length) {
+    return (
+      <div className={styles.comingSoon}>
+        <p>Neighborhood guides for this emirate are coming soon.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.neighborhoodGrid}>
+      {neighborhoods.map((hood) => {
+        const gradId = `hood-ogee-${hood.name.replace(/\s+/g, '-').toLowerCase()}`;
+
+        return (
+          <article key={hood.name} className={styles.neighborhoodCard}>
+            <div className={styles.neighborhoodArchBox}>
+              <svg
+                className={styles.neighborhoodArchSvg}
+                viewBox="0 0 200 164"
+                preserveAspectRatio="xMidYMax meet"
+                aria-hidden="true"
+              >
+                <defs>
+                  <radialGradient
+                    id={gradId}
+                    cx="50%"
+                    cy="100%"
+                    r="46%"
+                    fx="50%"
+                    fy="100%"
+                  >
+                    <stop offset="0%" stopColor="#c9a227" stopOpacity="0.92" />
+                    <stop offset="20%" stopColor="#e8d6a8" stopOpacity="0.78" />
+                    <stop offset="38%" stopColor="#c9a227" stopOpacity="0.42" />
+                    <stop offset="52%" stopColor="#c9a227" stopOpacity="0" />
+                    <stop offset="100%" stopColor="#c9a227" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+                <path
+                  className={styles.neighborhoodArchOuter}
+                  d={NEIGHBORHOOD_ARCH_OUTER}
+                />
+                <path
+                  className={styles.neighborhoodArchInner}
+                  d={NEIGHBORHOOD_ARCH_INNER}
+                  fill={NEIGHBORHOOD_ARCH_INK}
+                />
+                <path
+                  className={styles.neighborhoodArchGlow}
+                  d={NEIGHBORHOOD_ARCH_INNER}
+                  fill={`url(#${gradId})`}
+                />
+              </svg>
+              {hood.stayHere ? (
+                <span className={styles.stayHereBadge}>Stay here</span>
+              ) : null}
+            </div>
+
+            <div className={styles.neighborhoodBody}>
+              <h3 className={styles.neighborhoodName}>{hood.name}</h3>
+              <p className={styles.neighborhoodVibe}>{hood.vibe}</p>
+              <p className={styles.neighborhoodBestFor}>
+                <span className={styles.neighborhoodLabel}>Best for</span>
+                {hood.bestFor}
+              </p>
+              <ul className={styles.neighborhoodHighlights}>
+                {hood.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+function MapView({ mapPins }) {
+  if (!mapPins?.length) {
+    return (
+      <div className={styles.comingSoon}>
+        <p>Map pins for this emirate are coming soon.</p>
+      </div>
+    );
+  }
+
+  return <EmirateMap mapPins={mapPins} />;
 }
 
 function WhatToEatView({ items }) {
@@ -733,6 +840,32 @@ export default function EmirateModal({ emirateKey, onClose }) {
           <button
             type="button"
             role="tab"
+            id="tab-neighborhoods"
+            aria-selected={activeTab === 'neighborhoods'}
+            aria-controls="panel-neighborhoods"
+            className={`${styles.tab} ${
+              activeTab === 'neighborhoods' ? styles.tabActive : ''
+            }`}
+            onClick={() => setActiveTab('neighborhoods')}
+          >
+            Neighborhoods
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-map"
+            aria-selected={activeTab === 'map'}
+            aria-controls="panel-map"
+            className={`${styles.tab} ${
+              activeTab === 'map' ? styles.tabActive : ''
+            }`}
+            onClick={() => setActiveTab('map')}
+          >
+            Map
+          </button>
+          <button
+            type="button"
+            role="tab"
             id="tab-youtube"
             aria-selected={activeTab === 'youtube'}
             aria-controls="panel-youtube"
@@ -814,6 +947,20 @@ export default function EmirateModal({ emirateKey, onClose }) {
           {activeTab === 'stays' && (
             <div id="panel-stays" role="tabpanel" aria-labelledby="tab-stays">
               <StaysView stays={details.stays} />
+            </div>
+          )}
+          {activeTab === 'neighborhoods' && (
+            <div
+              id="panel-neighborhoods"
+              role="tabpanel"
+              aria-labelledby="tab-neighborhoods"
+            >
+              <NeighborhoodsView neighborhoods={details.neighborhoods} />
+            </div>
+          )}
+          {activeTab === 'map' && (
+            <div id="panel-map" role="tabpanel" aria-labelledby="tab-map">
+              <MapView mapPins={details.mapPins} />
             </div>
           )}
           {activeTab === 'youtube' && (
