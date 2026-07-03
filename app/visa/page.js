@@ -1,4 +1,6 @@
+import JsonLd from '@/components/seo/JsonLd';
 import VisaHub from '@/components/uae/VisaHub';
+import { buildVisaFaqSchema } from '@/lib/schema';
 
 export const metadata = {
   title: 'UAE Visa Information — Discover the Emirates',
@@ -7,5 +9,10 @@ export const metadata = {
 };
 
 export default function VisaPage() {
-  return <VisaHub />;
+  return (
+    <>
+      <JsonLd data={buildVisaFaqSchema()} />
+      <VisaHub />
+    </>
+  );
 }

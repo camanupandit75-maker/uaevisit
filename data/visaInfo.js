@@ -209,3 +209,34 @@ export const visaTypeOrder = [
   'pre-arranged',
   'transit',
 ];
+
+/** @typedef {{ question: string, answer: string }} VisaFaq */
+
+/** @type {VisaFaq[]} */
+export const visaFaqs = [
+  {
+    question: 'Do US citizens need a visa for the UAE?',
+    answer:
+      'United States passport holders are generally eligible for visa-on-arrival or visa-free entry to the UAE, with stay duration depending on current ICP policy — commonly up to 30 or 90 days. Confirm your passport on the official ICP eligible-countries list before booking flights.',
+  },
+  {
+    question: 'Do Indian citizens need a pre-arranged UAE visa?',
+    answer:
+      'Most Indian passport holders must arrange a UAE visit or tourist visa before travel through ICP, an airline, or an authorised agent. Some Indian citizens holding valid US, UK, or Schengen visas or a US Green Card may qualify for visa-on-arrival in limited cases — eligibility changes; verify on ICP before departure.',
+  },
+  {
+    question: 'Can I enter the UAE on a transit layover without a visa?',
+    answer:
+      'If you remain airside on a connecting flight and do not pass UAE immigration, you may not need an entry visa. If you plan to leave the airport or your itinerary requires clearing border control, you need an entry visa appropriate to your nationality. Confirm with your airline and ICP.',
+  },
+  {
+    question: 'How long can Filipino passport holders stay in the UAE?',
+    answer:
+      'Philippine passport holders have historically been included in UAE visa-on-arrival schemes, often for stays up to 30 days with extension rules that vary. Policies change — check the ICP country lookup for Philippines specifically before travel.',
+  },
+  {
+    question: 'Where should I verify UAE visa rules before travelling?',
+    answer:
+      'Always confirm requirements on official sources: the UAE Government portal (u.ae), the Federal Authority for Identity, Citizenship, Customs and Port Security (ICP), and GDRFA Dubai for Dubai-specific services. Rules update frequently and depend on your exact passport.',
+  },
+];

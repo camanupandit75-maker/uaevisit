@@ -25,6 +25,9 @@ export default function Header({ activeKey, onEmirateClick }) {
           <Link href="/events" className={styles.siteLink}>
             Events
           </Link>
+          <Link href="/blog" className={styles.siteLink}>
+            Blog
+          </Link>
 
           <ul className={styles.emirateLinks}>
             {emirates.map((emirate) => (

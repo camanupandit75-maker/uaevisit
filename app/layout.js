@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next';
 import { Cormorant_Garamond, Hanken_Grotesk, Marcellus, Noto_Naskh_Arabic } from 'next/font/google';
+import { getSiteUrl } from '@/lib/site';
 import './globals.css';
 
 const marcellus = Marcellus({
@@ -28,9 +29,18 @@ const notoNaskh = Noto_Naskh_Arabic({
 });
 
 export const metadata = {
-  title: 'Discover the Emirates',
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: 'Discover the Emirates',
+    template: '%s',
+  },
   description:
     'Seven emirates — from desert and oasis to the modern Gulf coast.',
+  openGraph: {
+    siteName: 'Discover the Emirates',
+    locale: 'en_GB',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {
