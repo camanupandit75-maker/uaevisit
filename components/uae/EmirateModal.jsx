@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { emirateDetails } from '@/data/uae/emirateDetails';
 import { emirates } from '@/data/uae/emirates';
@@ -424,6 +425,12 @@ function StaticItineraryContent({ itinerary }) {
         <p className={styles.itineraryBlurb}>{itinerary.blurb}</p>
       </header>
       <ItinerarySchedule schedule={itinerary.schedule} />
+      <p className={styles.visaItineraryLink}>
+        Planning entry?{' '}
+        <Link href="/visa" className={styles.visaItineraryAnchor}>
+          Check visa requirements →
+        </Link>
+      </p>
       <InlineDisclaimer href="/legal#ai-generated-content">
         Itineraries are AI-generated suggestions. Verify hours, prices, and
         availability before you go.

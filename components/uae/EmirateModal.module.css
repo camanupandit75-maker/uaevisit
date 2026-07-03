@@ -1163,6 +1163,30 @@
   color: var(--pearl-dim);
 }
 
+.visaItineraryLink {
+  margin: 14px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(250, 248, 243, 0.5);
+}
+
+.visaItineraryAnchor {
+  color: var(--sand-deep);
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 162, 39, 0.35);
+  text-underline-offset: 2px;
+}
+
+.visaItineraryAnchor:hover {
+  color: var(--sand-soft);
+}
+
+.visaItineraryAnchor:focus-visible {
+  outline: 2px solid var(--sand-deep);
+  outline-offset: 2px;
+}
+
 @media (max-width: 480px) {
   .formRowGroup {
     grid-template-columns: 1fr;

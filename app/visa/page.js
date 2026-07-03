@@ -1,0 +1,11 @@
+import VisaHub from '@/components/uae/VisaHub';
+
+export const metadata = {
+  title: 'UAE Visa Information — Discover the Emirates',
+  description:
+    'Look up UAE visa requirements by country — visa-free, visa-on-arrival, pre-arranged, and transit rules with official source links.',
+};
+
+export default function VisaPage() {
+  return <VisaHub />;
+}
