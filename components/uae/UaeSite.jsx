@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import DubaiVideoIntro from '@/components/DubaiVideoIntro';
 import EmirateVideoIntro from '@/components/EmirateVideoIntro';
 import EmirateExplorer from '@/components/uae/EmirateExplorer';
 import EmirateModal from '@/components/uae/EmirateModal';
@@ -14,7 +15,9 @@ export default function UaeSite() {
   const [scrollRequestKey, setScrollRequestKey] = useState(null);
   const [modalKey, setModalKey] = useState(null);
   const [showAbuDhabiIntro, setShowAbuDhabiIntro] = useState(false);
+  const [showDubaiIntro, setShowDubaiIntro] = useState(false);
   const abuDhabiIntroShown = useRef(false);
+  const dubaiIntroShown = useRef(false);
 
   const focusEmirate = (key) => {
     setActiveKey(key);
@@ -30,6 +33,11 @@ export default function UaeSite() {
     if (emirateKey === 'abuDhabi' && !abuDhabiIntroShown.current) {
       abuDhabiIntroShown.current = true;
       setShowAbuDhabiIntro(true);
+    }
+
+    if (emirateKey === 'dubai' && !dubaiIntroShown.current) {
+      dubaiIntroShown.current = true;
+      setShowDubaiIntro(true);
     }
   };
 
@@ -54,6 +62,9 @@ export default function UaeSite() {
       )}
       {showAbuDhabiIntro && (
         <EmirateVideoIntro onDismiss={() => setShowAbuDhabiIntro(false)} />
+      )}
+      {showDubaiIntro && (
+        <DubaiVideoIntro onDismiss={() => setShowDubaiIntro(false)} />
       )}
       <SiteFooter />
     </div>
