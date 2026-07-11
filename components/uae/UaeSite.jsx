@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import DubaiVideoIntro from '@/components/DubaiVideoIntro';
 import EmirateVideoIntro from '@/components/EmirateVideoIntro';
+import FujairahVideoIntro from '@/components/FujairahVideoIntro';
 import EmirateExplorer from '@/components/uae/EmirateExplorer';
 import EmirateModal from '@/components/uae/EmirateModal';
 import Header from '@/components/uae/Header';
@@ -16,8 +17,10 @@ export default function UaeSite() {
   const [modalKey, setModalKey] = useState(null);
   const [showAbuDhabiIntro, setShowAbuDhabiIntro] = useState(false);
   const [showDubaiIntro, setShowDubaiIntro] = useState(false);
+  const [showFujairahIntro, setShowFujairahIntro] = useState(false);
   const abuDhabiIntroShown = useRef(false);
   const dubaiIntroShown = useRef(false);
+  const fujairahIntroShown = useRef(false);
 
   const focusEmirate = (key) => {
     setActiveKey(key);
@@ -38,6 +41,11 @@ export default function UaeSite() {
     if (emirateKey === 'dubai' && !dubaiIntroShown.current) {
       dubaiIntroShown.current = true;
       setShowDubaiIntro(true);
+    }
+
+    if (emirateKey === 'fujairah' && !fujairahIntroShown.current) {
+      fujairahIntroShown.current = true;
+      setShowFujairahIntro(true);
     }
   };
 
@@ -65,6 +73,9 @@ export default function UaeSite() {
       )}
       {showDubaiIntro && (
         <DubaiVideoIntro onDismiss={() => setShowDubaiIntro(false)} />
+      )}
+      {showFujairahIntro && (
+        <FujairahVideoIntro onDismiss={() => setShowFujairahIntro(false)} />
       )}
       <SiteFooter />
     </div>
