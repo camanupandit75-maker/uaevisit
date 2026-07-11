@@ -228,6 +228,23 @@ h1.hero-title-shimmer {
   animation: skyline-flag-sweep 12s ease-in-out infinite;
 }
 
+@keyframes emirateTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.emirate-video-intro-text {
+  opacity: 0;
+  animation: emirateTextIn 800ms ease forwards;
+  animation-delay: 400ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .star-field,
   .skyline-beacon,
@@ -235,9 +252,14 @@ h1.hero-title-shimmer {
   .divider-shimmer::after,
   .emirate-card.card-enter,
   .emirate-card,
-  .emirate-card .arch-glow {
+  .emirate-card .arch-glow,
+  .emirate-video-intro-text {
     animation: none !important;
     transition: none !important;
+  }
+
+  .emirate-video-intro-text {
+    opacity: 1 !important;
   }
 
   .star-field {

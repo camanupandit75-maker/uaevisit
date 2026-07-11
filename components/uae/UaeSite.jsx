@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import EmirateVideoIntro from '@/components/EmirateVideoIntro';
 import EmirateExplorer from '@/components/uae/EmirateExplorer';
 import EmirateModal from '@/components/uae/EmirateModal';
 import Header from '@/components/uae/Header';
@@ -12,6 +13,8 @@ export default function UaeSite() {
   const [activeKey, setActiveKey] = useState(emirates[0].key);
   const [scrollRequestKey, setScrollRequestKey] = useState(null);
   const [modalKey, setModalKey] = useState(null);
+  const [showAbuDhabiIntro, setShowAbuDhabiIntro] = useState(false);
+  const abuDhabiIntroShown = useRef(false);
 
   const focusEmirate = (key) => {
     setActiveKey(key);
@@ -19,6 +22,15 @@ export default function UaeSite() {
     document
       .getElementById('explorer')
       ?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleEmirateOpen = (emirateKey) => {
+    setModalKey(emirateKey);
+
+    if (emirateKey === 'abuDhabi' && !abuDhabiIntroShown.current) {
+      abuDhabiIntroShown.current = true;
+      setShowAbuDhabiIntro(true);
+    }
   };
 
   return (
@@ -30,7 +42,7 @@ export default function UaeSite() {
           activeKey={activeKey}
           scrollRequestKey={scrollRequestKey}
           onActiveChange={setActiveKey}
-          onEmirateOpen={setModalKey}
+          onEmirateOpen={handleEmirateOpen}
         />
       </div>
       {modalKey && (
@@ -39,6 +51,9 @@ export default function UaeSite() {
           emirateKey={modalKey}
           onClose={() => setModalKey(null)}
         />
+      )}
+      {showAbuDhabiIntro && (
+        <EmirateVideoIntro onDismiss={() => setShowAbuDhabiIntro(false)} />
       )}
       <SiteFooter />
     </div>
