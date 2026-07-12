@@ -346,6 +346,45 @@ function WhatToDoView({ categories }) {
   );
 }
 
+function AdventuresView({ adventures }) {
+  if (!adventures?.categories?.length) {
+    return (
+      <div className={styles.comingSoon}>
+        <p>Adventure picks for this emirate are coming soon.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.adventuresSections}>
+      {adventures.intro ? (
+        <p className={styles.adventuresIntro}>{adventures.intro}</p>
+      ) : null}
+      {adventures.categories.map((group) => (
+        <section key={group.name} className={styles.doSection}>
+          <h3 className={styles.doCategory}>{group.name}</h3>
+          <ul className={styles.doList}>
+            {group.activities.map((activity) => (
+              <li key={activity.name} className={styles.adventureRow}>
+                <strong className={styles.doName}>{activity.name}</strong>
+                <span className={styles.doDescription}>{activity.description}</span>
+                <a
+                  href={activity.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.adventureLink}
+                >
+                  {activity.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 function formatDateInputValue(date) {
   return date.toISOString().slice(0, 10);
 }
@@ -912,6 +951,19 @@ export default function EmirateModal({ emirateKey, onClose }) {
           <button
             type="button"
             role="tab"
+            id="tab-adventures"
+            aria-selected={activeTab === 'adventures'}
+            aria-controls="panel-adventures"
+            className={`${styles.tab} ${
+              activeTab === 'adventures' ? styles.tabActive : ''
+            }`}
+            onClick={() => setActiveTab('adventures')}
+          >
+            Adventures
+          </button>
+          <button
+            type="button"
+            role="tab"
             id="tab-itinerary"
             aria-selected={activeTab === 'itinerary'}
             aria-controls="panel-itinerary"
@@ -987,6 +1039,15 @@ export default function EmirateModal({ emirateKey, onClose }) {
           {activeTab === 'do' && (
             <div id="panel-do" role="tabpanel" aria-labelledby="tab-do">
               <WhatToDoView categories={details.whatToDo} />
+            </div>
+          )}
+          {activeTab === 'adventures' && (
+            <div
+              id="panel-adventures"
+              role="tabpanel"
+              aria-labelledby="tab-adventures"
+            >
+              <AdventuresView adventures={details.adventures} />
             </div>
           )}
           {activeTab === 'itinerary' && (

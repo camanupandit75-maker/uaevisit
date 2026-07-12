@@ -6,6 +6,23 @@
 
 /** @typedef {{ category: string, activities: ActivityItem[] }} DoCategory */
 
+/** @typedef {{
+ *   name: string,
+ *   description: string,
+ *   website: string,
+ *   label: string,
+ * }} AdventureActivity */
+
+/** @typedef {{
+ *   name: string,
+ *   activities: AdventureActivity[],
+ * }} AdventureCategory */
+
+/** @typedef {{
+ *   intro: string,
+ *   categories: AdventureCategory[],
+ * }} Adventures */
+
 /** @typedef {{ time: string, activity: string, note?: string }} ItineraryStop */
 
 /** @typedef {{ day: number, title: string, stops: ItineraryStop[] }} ItineraryDay */
@@ -54,6 +71,7 @@
  *   youtubeVideos: import('./youtubeVideos.js').YouTubeVideoTheme[],
  *   whatToEat: EatItem[],
  *   whatToDo: DoCategory[],
+ *   adventures?: Adventures,
  *   suggestedItinerary?: SuggestedItinerary,
  *   neighborhoods: Neighborhood[],
  *   mapPins: MapPin[],
@@ -259,6 +277,68 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Abu Dhabi's adventure scene spans skydiving over the desert, F1-circuit driving, mangrove kayaking, and the vast dunes of the Empty Quarter's edge at Liwa.",
+      categories: [
+        {
+          name: 'Sky & Air',
+          activities: [
+            {
+              name: 'Tandem Skydiving',
+              description:
+                "Jump from 13,000ft over Abu Dhabi's desert landscape with a certified tandem instructor.",
+              website: 'https://abudhabiskydive.com/',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Motorsport',
+          activities: [
+            {
+              name: 'Formula Yas 3000 — F1 Circuit Drive',
+              description:
+                'Drive a real single-seat race car with F1-style paddle shifts on the Abu Dhabi Grand Prix circuit at Yas Marina.',
+              website: 'https://www.yasmarinacircuit.com/en/experience',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Water & Mangroves',
+          activities: [
+            {
+              name: 'Mangrove Kayaking — Jubail & Eastern Mangroves',
+              description:
+                "Guided kayak tours through Abu Dhabi's protected mangrove forests, including full-moon and sunset sessions.",
+              website: 'https://mws.ae/',
+              label: 'Book Now',
+            },
+            {
+              name: 'Kayaking & Eco-Tours — Noukhada',
+              description:
+                'A pioneer of Abu Dhabi kayaking: mangrove tours, island explorations, SUP, and sailing from AED 150.',
+              website: 'https://noukhada.ae/',
+              label: 'Explore',
+            },
+          ],
+        },
+        {
+          name: 'Desert',
+          activities: [
+            {
+              name: 'Liwa Desert Safari & Dune Bashing',
+              description:
+                "4x4 dune bashing and overnight camping on the edge of the Rub' al Khali (Empty Quarter) — the most dramatic desert in the UAE.",
+              website:
+                'https://visitabudhabi.ae/en/what-to-do/outdoor-activities/desert-safaris',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 2,
       blurb: 'A two-day balance of grand monuments, island culture, and desert edge.',
@@ -545,6 +625,80 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Dubai packs skydiving over the Palm, the world's longest urban zipline, indoor skiing in the desert, mountain kayaking in Hatta, and desert safari — often within an hour of the city center.",
+      categories: [
+        {
+          name: 'Sky & Air',
+          activities: [
+            {
+              name: 'Skydive Dubai — Tandem over the Palm',
+              description:
+                'Freefall at 200 km/h over Palm Jumeirah from 13,000ft — one of the most iconic skydives in the world.',
+              website: 'https://www.skydivedubai.ae/',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Zipline',
+          activities: [
+            {
+              name: 'XLine Dubai Marina — World\'s Longest Urban Zipline',
+              description:
+                'Fly 1 km at 170 metres above Dubai Marina at speeds up to 80 km/h from AED 699.',
+              website: 'https://www.xdubai.com/x-line',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Snow',
+          activities: [
+            {
+              name: 'Ski Dubai — Indoor Skiing & Snowboarding',
+              description:
+                'Real snow, real slopes, and -4°C in the middle of Dubai. Ski, snowboard, or meet the penguins.',
+              website: 'https://www.skidxb.com/en-ae/ski-dubai',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Hatta — Mountain Adventures',
+          activities: [
+            {
+              name: 'Hatta Kayaking',
+              description:
+                'Kayak the calm, turquoise waters of Hatta Dam — open from 7am daily.',
+              website: 'https://hattakayak.com/home',
+              label: 'Visit',
+            },
+            {
+              name: 'Hatta Mountain Biking, Hiking & Drop-In',
+              description:
+                "Dubai's Hajar Mountain park — free-to-ride trails, 35 km of hiking routes, and the high-speed Drop-In plunge.",
+              website: 'https://www.visithatta.com/en/play',
+              label: 'Explore',
+            },
+          ],
+        },
+        {
+          name: 'Desert',
+          activities: [
+            {
+              name: 'Desert Safari — Dune Bashing & Bedouin Camp',
+              description:
+                "4x4 dune bashing, sandboarding, camel rides, and a BBQ camp evening in Dubai's Arabian desert.",
+              website:
+                'https://www.visitdubai.com/en/things-to-do/outdoor/desert-safari-in-dubai',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 3,
       blurb: "Three days covering Dubai's icons, old town, and a desert day trip.",
@@ -797,6 +951,46 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Sharjah's Mleiha desert is the UAE's most dramatic adventure landscape — 34 sq km of dunes, a UNESCO-listed palaeolandscape, and the only place in the country offering paragliding from natural dunes.",
+      categories: [
+        {
+          name: 'Desert & Dunes',
+          activities: [
+            {
+              name: 'Mleiha National Park — Dune Bashing, Camping & Stargazing',
+              description:
+                "Dune bashing, quad bikes, paragliding from the dunes, overnight desert camping, and world-class stargazing in Sharjah's 34 sq km desert reserve.",
+              website:
+                'https://www.visitsharjah.com/en/activities/adventure/mleiha-national-park/',
+              label: 'Explore',
+            },
+            {
+              name: 'Mleiha Archaeological Centre',
+              description:
+                'Horse riding, desert cycling, trekking, and guided archaeology tours at a UNESCO-nominated site spanning 210,000 years of human history.',
+              website:
+                'https://www.visitsharjah.com/en/regions/central-region/mleiha/',
+              label: 'Plan Your Visit',
+            },
+          ],
+        },
+        {
+          name: 'Glamping',
+          activities: [
+            {
+              name: 'Moon Retreat & Al Faya Retreat — Desert Glamping',
+              description:
+                'Dome-style and boutique heritage glamping inside Mleiha National Park, sleeping under the desert stars.',
+              website:
+                'https://www.visitsharjah.com/en/regions/central-region/mleiha/',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 2,
       blurb: "Two days centered on Sharjah's museums and heritage areas.",
@@ -1002,6 +1196,36 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Ajman's small size means adventure is understated but accessible — desert safaris run into the dunes east of the city, and the Corniche is the base for jet skiing and water sports on the Gulf.",
+      categories: [
+        {
+          name: 'Desert',
+          activities: [
+            {
+              name: 'Ajman Desert Safari — Dune Bashing & BBQ',
+              description:
+                'Evening dune bashing, camel rides, and a BBQ dinner camp from AED 60 per person.',
+              website: 'https://ajmandesertsafari.com/',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Water Sports',
+          activities: [
+            {
+              name: 'Jet Skiing & Water Sports — Ajman Corniche',
+              description:
+                "Jet ski hire and watersports along Ajman's Gulf Corniche — multiple operators based along the waterfront.",
+              website: 'https://visitajman.ae/en/activities',
+              label: 'Explore',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 1,
       blurb: "Ajman's small scale makes it an easy single-day visit.",
@@ -1192,6 +1416,48 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Umm Al Quwain's protected lagoon and mangrove system creates some of the calmest, most wildlife-rich kayaking and kite-surfing waters in the UAE. Dreamland Aqua Park adds a classic waterpark experience.",
+      categories: [
+        {
+          name: 'Water & Mangroves',
+          activities: [
+            {
+              name: 'Mangrove Kayaking & Eco-Tours',
+              description:
+                "Paddle through UAQ's protected mangrove lagoon — calm, shallow, ideal for spotting flamingos and herons. Sunrise tours especially recommended.",
+              website: 'https://noukhada.ae/',
+              label: 'Book',
+            },
+          ],
+        },
+        {
+          name: 'Water Park',
+          activities: [
+            {
+              name: 'Dreamland Aqua Park',
+              description:
+                "The UAE's largest family waterpark — Kamikaze, Twisting Dragons, Black Hole, and more, open daily from 10am.",
+              website: 'https://dreamlanduae.com/',
+              label: 'Book Tickets',
+            },
+          ],
+        },
+        {
+          name: 'Watersports',
+          activities: [
+            {
+              name: 'Kitesurfing & Jet Skiing — UAQ Lagoon',
+              description:
+                'The sheltered UAQ lagoon creates ideal conditions for kitesurfing and beginner-friendly watersports, with flat water and reliable wind.',
+              website: 'https://visituaq.ae/',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 1,
       blurb: 'A relaxed day of lagoon and nature, best paired with a neighboring emirate.',
@@ -1400,6 +1666,74 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "RAK is the UAE's adventure capital. The Jebel Jais mountain (1,934m — UAE's highest peak) hosts the world's longest zipline, a via ferrata, and hiking trails. Hot air ballooning, skydiving, and desert camping add to a genuinely world-class adventure roster.",
+      categories: [
+        {
+          name: 'Jebel Jais — Mountain Adventures',
+          activities: [
+            {
+              name: 'Jais Flight — World\'s Longest Zipline',
+              description:
+                "2.83 km at 1,680 m above sea level across Jebel Jais' canyons at up to 160 km/h — the longest zipline on Earth.",
+              website: 'https://visitjebeljais.com/play',
+              label: 'Book Now',
+            },
+            {
+              name: 'Jais Via Ferrata',
+              description:
+                'Scale a 470-metre iron-path climbing route on Jebel Jais, with three difficulty routes and a 300m zip-line descent.',
+              website: 'https://visitjebeljais.com/jais-via-ferrata',
+              label: 'Book Now',
+            },
+            {
+              name: 'Hiking & Jais Sky Tour',
+              description:
+                "Mountain hiking trails and a 5 km multi-zipline tour across Jebel Jais' canyons at 1,600m elevation.",
+              website: 'https://visitjebeljais.com/',
+              label: 'Explore',
+            },
+          ],
+        },
+        {
+          name: 'Sky & Air',
+          activities: [
+            {
+              name: 'Hot Air Balloon — ActionFlight RAK',
+              description:
+                "Sunrise hot air balloon over the Hajar Mountains and RAK's coastline from AED 999, operated by ActionFlight.",
+              website: 'https://actionflight.ae/',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Glamping',
+          activities: [
+            {
+              name: 'Jebel Jais Glamping',
+              description:
+                "Stay overnight on the UAE's highest mountain — glamping pods and tented camps with views of the Hajar range.",
+              website: 'https://visitjebeljais.com/',
+              label: 'Explore',
+            },
+          ],
+        },
+        {
+          name: 'Desert',
+          activities: [
+            {
+              name: 'RAK Desert Safari & Dune Bashing',
+              description:
+                '4x4 dune bashing, sandboarding, and Bedouin camp experiences in the RAK desert interior.',
+              website: 'https://visitrasalkhaimah.com/discover/activities/',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 2,
       blurb: 'Two days split between mountain adventure and the coast.',
@@ -1623,6 +1957,55 @@ export const emirateDetails = {
         ],
       },
     ],
+    adventures: {
+      intro:
+        "Fujairah sits on the Gulf of Oman — the UAE's only emirate on the Indian Ocean side — making it the country's undisputed diving and snorkeling capital. The Hajar Mountains add wadi exploration and hiking.",
+      categories: [
+        {
+          name: 'Diving & Snorkeling',
+          activities: [
+            {
+              name: 'Snoopy Island Snorkeling & Scuba',
+              description:
+                "One of the UAE's most iconic dive sites — turtles, blacktip reef sharks, and vibrant coral off Al Aqah beach in Fujairah.",
+              website: 'https://divesandy.com/snoopy-island',
+              label: 'Book Dive',
+            },
+            {
+              name: 'Apex Divers UAE — SSI Dive Courses & Boat Dives',
+              description:
+                'SSI-certified dive courses, guided boat dives at Dibba Rock and Shark Island, and snorkel tours around Fujairah\'s coastline.',
+              website: 'https://www.apexdiversuae.com/',
+              label: 'Book Now',
+            },
+          ],
+        },
+        {
+          name: 'Water & Coast',
+          activities: [
+            {
+              name: 'Snorkeling at Snoopy Island — Aquanauts',
+              description:
+                'Guided snorkeling tours from Fujairah, including Snoopy Island, from AED 190 per person per hour.',
+              website: 'https://aquanauts.ae/snorkeling/',
+              label: 'Book',
+            },
+          ],
+        },
+        {
+          name: 'Wadi & Mountains',
+          activities: [
+            {
+              name: 'Wadi Wurayah National Park — Hiking & Waterfalls',
+              description:
+                "The UAE's first protected mountain reserve — hike to rare year-round waterfalls in the Hajar Mountains.",
+              website: 'https://visitfujairah.ae/',
+              label: 'Discover',
+            },
+          ],
+        },
+      ],
+    },
     suggestedItinerary: {
       days: 2,
       blurb: "Two days for the east coast's diving and heritage sites.",
