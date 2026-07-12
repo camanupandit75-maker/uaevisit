@@ -4,6 +4,8 @@ import { useRef, useState } from 'react';
 import DubaiVideoIntro from '@/components/DubaiVideoIntro';
 import EmirateVideoIntro from '@/components/EmirateVideoIntro';
 import FujairahVideoIntro from '@/components/FujairahVideoIntro';
+import RasAlKhaimahVideoIntro from '@/components/RasAlKhaimahVideoIntro';
+import UmmAlQuwainVideoIntro from '@/components/UmmAlQuwainVideoIntro';
 import EmirateExplorer from '@/components/uae/EmirateExplorer';
 import EmirateModal from '@/components/uae/EmirateModal';
 import Header from '@/components/uae/Header';
@@ -18,9 +20,13 @@ export default function UaeSite() {
   const [showAbuDhabiIntro, setShowAbuDhabiIntro] = useState(false);
   const [showDubaiIntro, setShowDubaiIntro] = useState(false);
   const [showFujairahIntro, setShowFujairahIntro] = useState(false);
+  const [showRasAlKhaimahIntro, setShowRasAlKhaimahIntro] = useState(false);
+  const [showUmmAlQuwainIntro, setShowUmmAlQuwainIntro] = useState(false);
   const abuDhabiIntroShown = useRef(false);
   const dubaiIntroShown = useRef(false);
   const fujairahIntroShown = useRef(false);
+  const rasAlKhaimahIntroShown = useRef(false);
+  const ummAlQuwainIntroShown = useRef(false);
 
   const focusEmirate = (key) => {
     setActiveKey(key);
@@ -46,6 +52,16 @@ export default function UaeSite() {
     if (emirateKey === 'fujairah' && !fujairahIntroShown.current) {
       fujairahIntroShown.current = true;
       setShowFujairahIntro(true);
+    }
+
+    if (emirateKey === 'rasAlKhaimah' && !rasAlKhaimahIntroShown.current) {
+      rasAlKhaimahIntroShown.current = true;
+      setShowRasAlKhaimahIntro(true);
+    }
+
+    if (emirateKey === 'ummAlQuwain' && !ummAlQuwainIntroShown.current) {
+      ummAlQuwainIntroShown.current = true;
+      setShowUmmAlQuwainIntro(true);
     }
   };
 
@@ -76,6 +92,16 @@ export default function UaeSite() {
       )}
       {showFujairahIntro && (
         <FujairahVideoIntro onDismiss={() => setShowFujairahIntro(false)} />
+      )}
+      {showRasAlKhaimahIntro && (
+        <RasAlKhaimahVideoIntro
+          onDismiss={() => setShowRasAlKhaimahIntro(false)}
+        />
+      )}
+      {showUmmAlQuwainIntro && (
+        <UmmAlQuwainVideoIntro
+          onDismiss={() => setShowUmmAlQuwainIntro(false)}
+        />
       )}
       <SiteFooter />
     </div>
